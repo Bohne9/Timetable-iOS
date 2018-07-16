@@ -7,13 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F008DEA20F76779009A3E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008DE920F76779009A3E72 /* AppDelegate.swift */; };
-		4F008DEC20F76779009A3E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008DEB20F76779009A3E72 /* ViewController.swift */; };
-		4F008DEF20F76779009A3E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F008DED20F76779009A3E72 /* Main.storyboard */; };
-		4F008DF120F7677A009A3E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F008DF020F7677A009A3E72 /* Assets.xcassets */; };
 		4F008DF420F7677A009A3E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F008DF220F7677A009A3E72 /* LaunchScreen.storyboard */; };
 		4F008DFF20F7677A009A3E72 /* TimetableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008DFE20F7677A009A3E72 /* TimetableTests.swift */; };
 		4F008E0A20F7677A009A3E72 /* TimetableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E0920F7677A009A3E72 /* TimetableUITests.swift */; };
+		4F008E2420F7682C009A3E72 /* TimetableDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E1B20F7682C009A3E72 /* TimetableDay.swift */; };
+		4F008E2520F7682C009A3E72 /* TimetableLesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E1C20F7682C009A3E72 /* TimetableLesson.swift */; };
+		4F008E2620F7682C009A3E72 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E1D20F7682C009A3E72 /* Database.swift */; };
+		4F008E2720F7682C009A3E72 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E1E20F7682C009A3E72 /* Message.swift */; };
+		4F008E2820F7682C009A3E72 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E1F20F7682C009A3E72 /* Subject.swift */; };
+		4F008E2920F7682C009A3E72 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2020F7682C009A3E72 /* Task.swift */; };
+		4F008E2A20F7682C009A3E72 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2120F7682C009A3E72 /* Time.swift */; };
+		4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2220F7682C009A3E72 /* Updateable.swift */; };
+		4F008E2C20F7682C009A3E72 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2320F7682C009A3E72 /* Data.swift */; };
+		4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2D20F76859009A3E72 /* LessonEditView .swift */; };
+		4F008E3A20F7685A009A3E72 /* SubjectTaskDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */; };
+		4F008E3B20F7685A009A3E72 /* AnimationUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2F20F76859009A3E72 /* AnimationUiView.swift */; };
+		4F008E3C20F7685A009A3E72 /* MenuSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3020F76859009A3E72 /* MenuSectionView.swift */; };
+		4F008E3D20F7685A009A3E72 /* SubjectTaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */; };
+		4F008E3E20F7685A009A3E72 /* LessonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3220F7685A009A3E72 /* LessonAddView.swift */; };
+		4F008E3F20F7685A009A3E72 /* TaskMenuSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */; };
+		4F008E4020F7685A009A3E72 /* FacebookNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3420F7685A009A3E72 /* FacebookNativeAdView.swift */; };
+		4F008E4120F7685A009A3E72 /* MasterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3520F7685A009A3E72 /* MasterDetailView.swift */; };
+		4F008E4220F7685A009A3E72 /* LessonControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3620F7685A009A3E72 /* LessonControls.swift */; };
+		4F008E4320F7685A009A3E72 /* MasterDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */; };
+		4F008E4420F7685A009A3E72 /* SubjectMenuSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3820F7685A009A3E72 /* SubjectMenuSectionView.swift */; };
+		4F008E4C20F7686B009A3E72 /* TimetableDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4620F7686B009A3E72 /* TimetableDetailView.swift */; };
+		4F008E4D20F7686B009A3E72 /* TimetableDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4720F7686B009A3E72 /* TimetableDayView.swift */; };
+		4F008E4E20F7686B009A3E72 /* TimetableLessonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */; };
+		4F008E4F20F7686B009A3E72 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4920F7686B009A3E72 /* TimetableView.swift */; };
+		4F008E5020F7686B009A3E72 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4A20F7686B009A3E72 /* TestView.swift */; };
+		4F008E5120F7686B009A3E72 /* TimetableLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4B20F7686B009A3E72 /* TimetableLessonView.swift */; };
+		4F008E5620F7687A009A3E72 /* CardPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5220F76879009A3E72 /* CardPopupViewController.swift */; };
+		4F008E5720F7687A009A3E72 /* AlertViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5320F7687A009A3E72 /* AlertViewConroller.swift */; };
+		4F008E5820F7687A009A3E72 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5420F7687A009A3E72 /* SubjectViewController.swift */; };
+		4F008E5920F7687A009A3E72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5520F7687A009A3E72 /* ViewController.swift */; };
+		4F008E6420F7688C009A3E72 /* AbstractMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5B20F7688B009A3E72 /* AbstractMenu.swift */; };
+		4F008E6520F7688C009A3E72 /* DayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5C20F7688C009A3E72 /* DayIndicator.swift */; };
+		4F008E6620F7688C009A3E72 /* ChatCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5D20F7688C009A3E72 /* ChatCollectionView.swift */; };
+		4F008E6720F7688C009A3E72 /* AbstractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5E20F7688C009A3E72 /* AbstractView.swift */; };
+		4F008E6820F7688C009A3E72 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5F20F7688C009A3E72 /* ChatView.swift */; };
+		4F008E6920F7688C009A3E72 /* LessonControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E6020F7688C009A3E72 /* LessonControl.swift */; };
+		4F008E6A20F7688C009A3E72 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E6120F7688C009A3E72 /* MenuBar.swift */; };
+		4F008E6B20F7688C009A3E72 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E6220F7688C009A3E72 /* MenuController.swift */; };
+		4F008E6C20F7688C009A3E72 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E6320F7688C009A3E72 /* ProfileView.swift */; };
+		4F008E6D20F76930009A3E72 /* Pods_Timetable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A13D57F1C138C710F01593C /* Pods_Timetable.framework */; };
+		4F008E6E20F76930009A3E72 /* Pods_Timetable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3A13D57F1C138C710F01593C /* Pods_Timetable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F008E8220F769AC009A3E72 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7020F7699E009A3E72 /* Roboto-Bold.ttf */; };
+		4F008E8320F769AC009A3E72 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7120F7699F009A3E72 /* Roboto-BlackItalic.ttf */; };
+		4F008E8420F769AC009A3E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7220F769A0009A3E72 /* Assets.xcassets */; };
+		4F008E8520F769AC009A3E72 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7320F769A1009A3E72 /* Roboto-Italic.ttf */; };
+		4F008E8620F769AC009A3E72 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7420F769A2009A3E72 /* Roboto-ThinItalic.ttf */; };
+		4F008E8720F769AC009A3E72 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7520F769A3009A3E72 /* Roboto-BoldItalic.ttf */; };
+		4F008E8820F769AC009A3E72 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7620F769A4009A3E72 /* Roboto-Black.ttf */; };
+		4F008E8920F769AC009A3E72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7720F769A4009A3E72 /* GoogleService-Info.plist */; };
+		4F008E8A20F769AC009A3E72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E7820F769A5009A3E72 /* Language.swift */; };
+		4F008E8B20F769AC009A3E72 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7920F769A6009A3E72 /* Roboto-Thin.ttf */; };
+		4F008E8C20F769AC009A3E72 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7A20F769A6009A3E72 /* Roboto-Medium.ttf */; };
+		4F008E8D20F769AC009A3E72 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7B20F769A7009A3E72 /* Roboto-MediumItalic.ttf */; };
+		4F008E8E20F769AC009A3E72 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7C20F769A8009A3E72 /* fonts */; };
+		4F008E8F20F769AC009A3E72 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7D20F769A8009A3E72 /* Roboto-Regular.ttf */; };
+		4F008E9020F769AC009A3E72 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7E20F769A9009A3E72 /* Roboto-LightItalic.ttf */; };
+		4F008E9120F769AC009A3E72 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7F20F769AA009A3E72 /* LICENSE.txt */; };
+		4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */; };
+		4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E8120F769AC009A3E72 /* Extensions.swift */; };
+		4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */; };
+		74B268BCEB8CC3B617E1D747 /* Pods_TimetableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A01D1BFD76BAB4AF48CDE /* Pods_TimetableUITests.framework */; };
+		D12A80F8884F776C8BB219D8 /* Pods_TimetableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,12 +92,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4F008E6F20F76930009A3E72 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F008E6E20F76930009A3E72 /* Pods_Timetable.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		23FCCA01888B55C651DEA63B /* Pods-TimetableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableUITests/Pods-TimetableUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3A13D57F1C138C710F01593C /* Pods_Timetable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Timetable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F008DE620F76779009A3E72 /* Timetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F008DE920F76779009A3E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F008DEB20F76779009A3E72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4F008DEE20F76779009A3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4F008DF020F7677A009A3E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F008DF320F7677A009A3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F008DF520F7677A009A3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F008DFA20F7677A009A3E72 /* TimetableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimetableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +118,72 @@
 		4F008E0520F7677A009A3E72 /* TimetableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimetableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F008E0920F7677A009A3E72 /* TimetableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableUITests.swift; sourceTree = "<group>"; };
 		4F008E0B20F7677A009A3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F008E1B20F7682C009A3E72 /* TimetableDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableDay.swift; sourceTree = "<group>"; };
+		4F008E1C20F7682C009A3E72 /* TimetableLesson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableLesson.swift; sourceTree = "<group>"; };
+		4F008E1D20F7682C009A3E72 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		4F008E1E20F7682C009A3E72 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4F008E1F20F7682C009A3E72 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		4F008E2020F7682C009A3E72 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4F008E2120F7682C009A3E72 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		4F008E2220F7682C009A3E72 /* Updateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updateable.swift; sourceTree = "<group>"; };
+		4F008E2320F7682C009A3E72 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		4F008E2D20F76859009A3E72 /* LessonEditView .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LessonEditView .swift"; sourceTree = "<group>"; };
+		4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTaskDetailTableView.swift; sourceTree = "<group>"; };
+		4F008E2F20F76859009A3E72 /* AnimationUiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUiView.swift; sourceTree = "<group>"; };
+		4F008E3020F76859009A3E72 /* MenuSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionView.swift; sourceTree = "<group>"; };
+		4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTaskDetailView.swift; sourceTree = "<group>"; };
+		4F008E3220F7685A009A3E72 /* LessonAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonAddView.swift; sourceTree = "<group>"; };
+		4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskMenuSectionView.swift; sourceTree = "<group>"; };
+		4F008E3420F7685A009A3E72 /* FacebookNativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookNativeAdView.swift; sourceTree = "<group>"; };
+		4F008E3520F7685A009A3E72 /* MasterDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailView.swift; sourceTree = "<group>"; };
+		4F008E3620F7685A009A3E72 /* LessonControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonControls.swift; sourceTree = "<group>"; };
+		4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailTableView.swift; sourceTree = "<group>"; };
+		4F008E3820F7685A009A3E72 /* SubjectMenuSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectMenuSectionView.swift; sourceTree = "<group>"; };
+		4F008E4620F7686B009A3E72 /* TimetableDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableDetailView.swift; sourceTree = "<group>"; };
+		4F008E4720F7686B009A3E72 /* TimetableDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableDayView.swift; sourceTree = "<group>"; };
+		4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableLessonStack.swift; sourceTree = "<group>"; };
+		4F008E4920F7686B009A3E72 /* TimetableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
+		4F008E4A20F7686B009A3E72 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		4F008E4B20F7686B009A3E72 /* TimetableLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableLessonView.swift; sourceTree = "<group>"; };
+		4F008E5220F76879009A3E72 /* CardPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPopupViewController.swift; sourceTree = "<group>"; };
+		4F008E5320F7687A009A3E72 /* AlertViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewConroller.swift; sourceTree = "<group>"; };
+		4F008E5420F7687A009A3E72 /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
+		4F008E5520F7687A009A3E72 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4F008E5B20F7688B009A3E72 /* AbstractMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractMenu.swift; sourceTree = "<group>"; };
+		4F008E5C20F7688C009A3E72 /* DayIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayIndicator.swift; sourceTree = "<group>"; };
+		4F008E5D20F7688C009A3E72 /* ChatCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollectionView.swift; sourceTree = "<group>"; };
+		4F008E5E20F7688C009A3E72 /* AbstractView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractView.swift; sourceTree = "<group>"; };
+		4F008E5F20F7688C009A3E72 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		4F008E6020F7688C009A3E72 /* LessonControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonControl.swift; sourceTree = "<group>"; };
+		4F008E6120F7688C009A3E72 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		4F008E6220F7688C009A3E72 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		4F008E6320F7688C009A3E72 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4F008E7020F7699E009A3E72 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		4F008E7120F7699F009A3E72 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4F008E7220F769A0009A3E72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F008E7320F769A1009A3E72 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		4F008E7420F769A2009A3E72 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4F008E7520F769A3009A3E72 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4F008E7620F769A4009A3E72 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		4F008E7720F769A4009A3E72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4F008E7820F769A5009A3E72 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		4F008E7920F769A6009A3E72 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		4F008E7A20F769A6009A3E72 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		4F008E7B20F769A7009A3E72 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4F008E7C20F769A8009A3E72 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		4F008E7D20F769A8009A3E72 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		4F008E7E20F769A9009A3E72 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		4F008E7F20F769AA009A3E72 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		4F008E8120F769AC009A3E72 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimetableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C3864395C3985B7ACA9AA95 /* Pods-TimetableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DC0C5B269A1F830FBE14072 /* Pods-TimetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.release.xcconfig"; sourceTree = "<group>"; };
+		A14338564C212822B4A64607 /* Pods-Timetable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timetable.release.xcconfig"; path = "Pods/Target Support Files/Pods-Timetable/Pods-Timetable.release.xcconfig"; sourceTree = "<group>"; };
+		B3D2FAFC90BE01791821630A /* Pods-TimetableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableUITests/Pods-TimetableUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E48A01D1BFD76BAB4AF48CDE /* Pods_TimetableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimetableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F83ABD9C110BED1B8BD8D593 /* Pods-Timetable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Timetable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Timetable/Pods-Timetable.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F008E6D20F76930009A3E72 /* Pods_Timetable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D12A80F8884F776C8BB219D8 /* Pods_TimetableTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +207,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74B268BCEB8CC3B617E1D747 /* Pods_TimetableUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47689FBF5C576B550EFA7230 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F83ABD9C110BED1B8BD8D593 /* Pods-Timetable.debug.xcconfig */,
+				A14338564C212822B4A64607 /* Pods-Timetable.release.xcconfig */,
+				9C3864395C3985B7ACA9AA95 /* Pods-TimetableTests.debug.xcconfig */,
+				9DC0C5B269A1F830FBE14072 /* Pods-TimetableTests.release.xcconfig */,
+				B3D2FAFC90BE01791821630A /* Pods-TimetableUITests.debug.xcconfig */,
+				23FCCA01888B55C651DEA63B /* Pods-TimetableUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4F008DDD20F76779009A3E72 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +234,8 @@
 				4F008DFD20F7677A009A3E72 /* TimetableTests */,
 				4F008E0820F7677A009A3E72 /* TimetableUITests */,
 				4F008DE720F76779009A3E72 /* Products */,
+				47689FBF5C576B550EFA7230 /* Pods */,
+				8CDE24B810CF8C30E138F5A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,10 +252,11 @@
 		4F008DE820F76779009A3E72 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
-				4F008DE920F76779009A3E72 /* AppDelegate.swift */,
-				4F008DEB20F76779009A3E72 /* ViewController.swift */,
-				4F008DED20F76779009A3E72 /* Main.storyboard */,
-				4F008DF020F7677A009A3E72 /* Assets.xcassets */,
+				4F3A2FD120F76B4900F17EB5 /* AppDelegate */,
+				4F008E1820F767D0009A3E72 /* Model */,
+				4F008E1920F767D6009A3E72 /* View */,
+				4F008E1A20F767EF009A3E72 /* Controller */,
+				4F008E1720F76783009A3E72 /* DefaultFiles */,
 				4F008DF220F7677A009A3E72 /* LaunchScreen.storyboard */,
 				4F008DF520F7677A009A3E72 /* Info.plist */,
 			);
@@ -125,6 +281,126 @@
 			path = TimetableUITests;
 			sourceTree = "<group>";
 		};
+		4F008E1720F76783009A3E72 /* DefaultFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E7220F769A0009A3E72 /* Assets.xcassets */,
+				4F008E8120F769AC009A3E72 /* Extensions.swift */,
+				4F008E7C20F769A8009A3E72 /* fonts */,
+				4F008E7720F769A4009A3E72 /* GoogleService-Info.plist */,
+				4F008E7820F769A5009A3E72 /* Language.swift */,
+				4F008E7F20F769AA009A3E72 /* LICENSE.txt */,
+				4F008E7620F769A4009A3E72 /* Roboto-Black.ttf */,
+				4F008E7120F7699F009A3E72 /* Roboto-BlackItalic.ttf */,
+				4F008E7020F7699E009A3E72 /* Roboto-Bold.ttf */,
+				4F008E7520F769A3009A3E72 /* Roboto-BoldItalic.ttf */,
+				4F008E7320F769A1009A3E72 /* Roboto-Italic.ttf */,
+				4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */,
+				4F008E7E20F769A9009A3E72 /* Roboto-LightItalic.ttf */,
+				4F008E7A20F769A6009A3E72 /* Roboto-Medium.ttf */,
+				4F008E7B20F769A7009A3E72 /* Roboto-MediumItalic.ttf */,
+				4F008E7D20F769A8009A3E72 /* Roboto-Regular.ttf */,
+				4F008E7920F769A6009A3E72 /* Roboto-Thin.ttf */,
+				4F008E7420F769A2009A3E72 /* Roboto-ThinItalic.ttf */,
+				4F008E5A20F7687E009A3E72 /* OldCode */,
+			);
+			path = DefaultFiles;
+			sourceTree = "<group>";
+		};
+		4F008E1820F767D0009A3E72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E2320F7682C009A3E72 /* Data.swift */,
+				4F008E1D20F7682C009A3E72 /* Database.swift */,
+				4F008E1E20F7682C009A3E72 /* Message.swift */,
+				4F008E1F20F7682C009A3E72 /* Subject.swift */,
+				4F008E2020F7682C009A3E72 /* Task.swift */,
+				4F008E2120F7682C009A3E72 /* Time.swift */,
+				4F008E1B20F7682C009A3E72 /* TimetableDay.swift */,
+				4F008E1C20F7682C009A3E72 /* TimetableLesson.swift */,
+				4F008E2220F7682C009A3E72 /* Updateable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F008E1920F767D6009A3E72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E4520F7685C009A3E72 /* TimetableView */,
+				4F008E2F20F76859009A3E72 /* AnimationUiView.swift */,
+				4F008E3420F7685A009A3E72 /* FacebookNativeAdView.swift */,
+				4F008E3220F7685A009A3E72 /* LessonAddView.swift */,
+				4F008E3620F7685A009A3E72 /* LessonControls.swift */,
+				4F008E2D20F76859009A3E72 /* LessonEditView .swift */,
+				4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */,
+				4F008E3520F7685A009A3E72 /* MasterDetailView.swift */,
+				4F008E3020F76859009A3E72 /* MenuSectionView.swift */,
+				4F008E3820F7685A009A3E72 /* SubjectMenuSectionView.swift */,
+				4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */,
+				4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */,
+				4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F008E1A20F767EF009A3E72 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E5320F7687A009A3E72 /* AlertViewConroller.swift */,
+				4F008E5220F76879009A3E72 /* CardPopupViewController.swift */,
+				4F008E5420F7687A009A3E72 /* SubjectViewController.swift */,
+				4F008E5520F7687A009A3E72 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4F008E4520F7685C009A3E72 /* TimetableView */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E4A20F7686B009A3E72 /* TestView.swift */,
+				4F008E4720F7686B009A3E72 /* TimetableDayView.swift */,
+				4F008E4620F7686B009A3E72 /* TimetableDetailView.swift */,
+				4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */,
+				4F008E4B20F7686B009A3E72 /* TimetableLessonView.swift */,
+				4F008E4920F7686B009A3E72 /* TimetableView.swift */,
+			);
+			path = TimetableView;
+			sourceTree = "<group>";
+		};
+		4F008E5A20F7687E009A3E72 /* OldCode */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E5B20F7688B009A3E72 /* AbstractMenu.swift */,
+				4F008E5E20F7688C009A3E72 /* AbstractView.swift */,
+				4F008E5D20F7688C009A3E72 /* ChatCollectionView.swift */,
+				4F008E5F20F7688C009A3E72 /* ChatView.swift */,
+				4F008E5C20F7688C009A3E72 /* DayIndicator.swift */,
+				4F008E6020F7688C009A3E72 /* LessonControl.swift */,
+				4F008E6120F7688C009A3E72 /* MenuBar.swift */,
+				4F008E6220F7688C009A3E72 /* MenuController.swift */,
+				4F008E6320F7688C009A3E72 /* ProfileView.swift */,
+			);
+			path = OldCode;
+			sourceTree = "<group>";
+		};
+		4F3A2FD120F76B4900F17EB5 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8CDE24B810CF8C30E138F5A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A13D57F1C138C710F01593C /* Pods_Timetable.framework */,
+				71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */,
+				E48A01D1BFD76BAB4AF48CDE /* Pods_TimetableUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +408,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F008E0E20F7677A009A3E72 /* Build configuration list for PBXNativeTarget "Timetable" */;
 			buildPhases = (
+				44AC34A0F9342B71D0E2B36B /* [CP] Check Pods Manifest.lock */,
 				4F008DE220F76779009A3E72 /* Sources */,
 				4F008DE320F76779009A3E72 /* Frameworks */,
 				4F008DE420F76779009A3E72 /* Resources */,
+				AEA7BB490918BC45E97453FD /* [CP] Embed Pods Frameworks */,
+				4F008E6F20F76930009A3E72 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +428,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F008E1120F7677A009A3E72 /* Build configuration list for PBXNativeTarget "TimetableTests" */;
 			buildPhases = (
+				D5218F8531C94AFB14F7A491 /* [CP] Check Pods Manifest.lock */,
 				4F008DF620F7677A009A3E72 /* Sources */,
 				4F008DF720F7677A009A3E72 /* Frameworks */,
 				4F008DF820F7677A009A3E72 /* Resources */,
@@ -167,6 +447,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F008E1420F7677A009A3E72 /* Build configuration list for PBXNativeTarget "TimetableUITests" */;
 			buildPhases = (
+				86E117893C7D36B08E3B1D78 /* [CP] Check Pods Manifest.lock */,
 				4F008E0120F7677A009A3E72 /* Sources */,
 				4F008E0220F7677A009A3E72 /* Frameworks */,
 				4F008E0320F7677A009A3E72 /* Resources */,
@@ -193,6 +474,7 @@
 				TargetAttributes = {
 					4F008DE520F76779009A3E72 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					4F008DF920F7677A009A3E72 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -229,9 +511,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F008E8620F769AC009A3E72 /* Roboto-ThinItalic.ttf in Resources */,
+				4F008E8E20F769AC009A3E72 /* fonts in Resources */,
+				4F008E9020F769AC009A3E72 /* Roboto-LightItalic.ttf in Resources */,
+				4F008E8220F769AC009A3E72 /* Roboto-Bold.ttf in Resources */,
+				4F008E8920F769AC009A3E72 /* GoogleService-Info.plist in Resources */,
+				4F008E8320F769AC009A3E72 /* Roboto-BlackItalic.ttf in Resources */,
+				4F008E8D20F769AC009A3E72 /* Roboto-MediumItalic.ttf in Resources */,
+				4F008E8820F769AC009A3E72 /* Roboto-Black.ttf in Resources */,
+				4F008E8520F769AC009A3E72 /* Roboto-Italic.ttf in Resources */,
+				4F008E8F20F769AC009A3E72 /* Roboto-Regular.ttf in Resources */,
+				4F008E8420F769AC009A3E72 /* Assets.xcassets in Resources */,
+				4F008E8720F769AC009A3E72 /* Roboto-BoldItalic.ttf in Resources */,
+				4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */,
+				4F008E9120F769AC009A3E72 /* LICENSE.txt in Resources */,
+				4F008E8C20F769AC009A3E72 /* Roboto-Medium.ttf in Resources */,
+				4F008E8B20F769AC009A3E72 /* Roboto-Thin.ttf in Resources */,
 				4F008DF420F7677A009A3E72 /* LaunchScreen.storyboard in Resources */,
-				4F008DF120F7677A009A3E72 /* Assets.xcassets in Resources */,
-				4F008DEF20F76779009A3E72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +547,147 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		44AC34A0F9342B71D0E2B36B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Timetable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86E117893C7D36B08E3B1D78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimetableUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEA7BB490918BC45E97453FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Timetable/Pods-Timetable-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Timetable/Pods-Timetable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5218F8531C94AFB14F7A491 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimetableTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F008DE220F76779009A3E72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F008DEC20F76779009A3E72 /* ViewController.swift in Sources */,
-				4F008DEA20F76779009A3E72 /* AppDelegate.swift in Sources */,
+				4F008E6920F7688C009A3E72 /* LessonControl.swift in Sources */,
+				4F008E4020F7685A009A3E72 /* FacebookNativeAdView.swift in Sources */,
+				4F008E2620F7682C009A3E72 /* Database.swift in Sources */,
+				4F008E2820F7682C009A3E72 /* Subject.swift in Sources */,
+				4F008E6520F7688C009A3E72 /* DayIndicator.swift in Sources */,
+				4F008E6820F7688C009A3E72 /* ChatView.swift in Sources */,
+				4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */,
+				4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */,
+				4F008E2A20F7682C009A3E72 /* Time.swift in Sources */,
+				4F008E4D20F7686B009A3E72 /* TimetableDayView.swift in Sources */,
+				4F008E6720F7688C009A3E72 /* AbstractView.swift in Sources */,
+				4F008E5820F7687A009A3E72 /* SubjectViewController.swift in Sources */,
+				4F008E6A20F7688C009A3E72 /* MenuBar.swift in Sources */,
+				4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */,
+				4F008E3D20F7685A009A3E72 /* SubjectTaskDetailView.swift in Sources */,
+				4F008E5920F7687A009A3E72 /* ViewController.swift in Sources */,
+				4F008E3C20F7685A009A3E72 /* MenuSectionView.swift in Sources */,
+				4F008E4320F7685A009A3E72 /* MasterDetailTableView.swift in Sources */,
+				4F008E5720F7687A009A3E72 /* AlertViewConroller.swift in Sources */,
+				4F008E2720F7682C009A3E72 /* Message.swift in Sources */,
+				4F008E3A20F7685A009A3E72 /* SubjectTaskDetailTableView.swift in Sources */,
+				4F008E4C20F7686B009A3E72 /* TimetableDetailView.swift in Sources */,
+				4F008E2420F7682C009A3E72 /* TimetableDay.swift in Sources */,
+				4F008E2920F7682C009A3E72 /* Task.swift in Sources */,
+				4F008E3B20F7685A009A3E72 /* AnimationUiView.swift in Sources */,
+				4F008E6620F7688C009A3E72 /* ChatCollectionView.swift in Sources */,
+				4F008E8A20F769AC009A3E72 /* Language.swift in Sources */,
+				4F008E4420F7685A009A3E72 /* SubjectMenuSectionView.swift in Sources */,
+				4F008E5620F7687A009A3E72 /* CardPopupViewController.swift in Sources */,
+				4F008E3F20F7685A009A3E72 /* TaskMenuSectionView.swift in Sources */,
+				4F008E6420F7688C009A3E72 /* AbstractMenu.swift in Sources */,
+				4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */,
+				4F008E2C20F7682C009A3E72 /* Data.swift in Sources */,
+				4F008E5120F7686B009A3E72 /* TimetableLessonView.swift in Sources */,
+				4F008E4120F7685A009A3E72 /* MasterDetailView.swift in Sources */,
+				4F008E6C20F7688C009A3E72 /* ProfileView.swift in Sources */,
+				4F008E4F20F7686B009A3E72 /* TimetableView.swift in Sources */,
+				4F008E2520F7682C009A3E72 /* TimetableLesson.swift in Sources */,
+				4F008E4220F7685A009A3E72 /* LessonControls.swift in Sources */,
+				4F008E4E20F7686B009A3E72 /* TimetableLessonStack.swift in Sources */,
+				4F008E5020F7686B009A3E72 /* TestView.swift in Sources */,
+				4F008E6B20F7688C009A3E72 /* MenuController.swift in Sources */,
+				4F008E3E20F7685A009A3E72 /* LessonAddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +723,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4F008DED20F76779009A3E72 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4F008DEE20F76779009A3E72 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4F008DF220F7677A009A3E72 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,17 +850,21 @@
 		};
 		4F008E0F20F7677A009A3E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F83ABD9C110BED1B8BD8D593 /* Pods-Timetable.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE78DLA237;
 				INFOPLIST_FILE = Timetable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schueller.Timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -446,11 +872,14 @@
 		};
 		4F008E1020F7677A009A3E72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14338564C212822B4A64607 /* Pods-Timetable.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE78DLA237;
 				INFOPLIST_FILE = Timetable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +893,7 @@
 		};
 		4F008E1220F7677A009A3E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C3864395C3985B7ACA9AA95 /* Pods-TimetableTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,6 +915,7 @@
 		};
 		4F008E1320F7677A009A3E72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DC0C5B269A1F830FBE14072 /* Pods-TimetableTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,6 +937,7 @@
 		};
 		4F008E1520F7677A009A3E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3D2FAFC90BE01791821630A /* Pods-TimetableUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,6 +958,7 @@
 		};
 		4F008E1620F7677A009A3E72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23FCCA01888B55C651DEA63B /* Pods-TimetableUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
