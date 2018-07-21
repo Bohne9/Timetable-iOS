@@ -87,7 +87,11 @@ extension UIColor {
     static let interactionDarker = UIColor.interaction.darker()!
     static let interactionLighter = UIColor.interaction.lighter()!
     
-    static let background = UIColor(hexString: "#47495D")
+    // Old blue gradient color : #47495D
+//    static let background = UIColor(hexString: "#47495D")
+//    static let background = UIColor(hexString: "#222427")
+    static let background = UIColor(hexString: "#222222")
+    
     //    static let backgroundDarker = UIColor.background.darker()!
     //    static let backgroundLighter = UIColor.background.lighter()!
     //
@@ -98,7 +102,8 @@ extension UIColor {
     static let contrast = UIColor(hexString: "#F1F1F1")
     static let contrastDarker = UIColor.contrast.darker()!
     static let contrastLighter = UIColor.contrast.lighter()!
-    static let appWhite = grayscale(gray: 0.85)
+    
+    static let appWhite = grayscale(gray: 0.95)
     
     static let error = UIColor(hexString: "#E71A25")
     static let errorDarker = UIColor.error.darker()!

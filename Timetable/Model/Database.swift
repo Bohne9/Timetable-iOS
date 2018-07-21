@@ -39,7 +39,7 @@ class Database {
         settings.isPersistenceEnabled = true
         settings.areTimestampsInSnapshotsEnabled = true
         connection.settings = settings
-    
+        
     }
     
     func configure(_ completion: @escaping () -> Void) {

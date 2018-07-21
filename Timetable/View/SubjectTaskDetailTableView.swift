@@ -16,20 +16,22 @@ enum TaskTimeIntervall: String{
     case previous = "Previous"
 }
 
+
 class SubjectTaskDetailTableViewCellHeader: UITableViewHeaderFooterView {
     
     var titleLabel = UILabel()
     
+
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .appWhite
-        contentView.backgroundColor = .appWhite
+        contentView.backgroundColor = .background
         
         titleLabel.addAndConstraint(to: self)
         titleLabel.textAlignment = .left
-        titleLabel.textColor = .background
-        titleLabel.font = UIFont.robotoBold(30)
+        titleLabel.textColor = .appWhite
+        titleLabel.font = UIFont.robotoBold(20)
         
     }
     
@@ -43,8 +45,9 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
     
     var taskLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.robotoBold(18)
-        label.textColor = .background
+        label.font = UIFont.robotoBold(15)
+        label.textColor = .appWhite
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
 //        label.adjustsFontSizeToFitWidth = true
         
@@ -53,7 +56,7 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
     
     var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.robotoBold(15)
+        label.font = UIFont.robotoBold(13)
         label.textAlignment = .right
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +67,7 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
     
     var infoLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.robotoBold(15)
+        label.font = UIFont.robotoBold(13)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -72,6 +75,14 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
         return label
     }()
     
+    var nextImg: UIImageView = {
+        let img = UIImageView()
+        img.image = #imageLiteral(resourceName: "next").withRenderingMode(.alwaysTemplate)
+        img.tintColor = .gray
+        img.translatesAutoresizingMaskIntoConstraints = false
+        
+        return img
+    }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -79,25 +90,33 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
         addSubview(taskLabel)
         addSubview(dateLabel)
         addSubview(infoLabel)
+        addSubview(nextImg)
+        
+        nextImg.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        nextImg.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        nextImg.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        nextImg.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
         
         taskLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -2).isActive = true
         taskLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2).isActive = true
-        taskLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.95).isActive = true
+        taskLabel.trailingAnchor.constraint(equalTo: nextImg.leadingAnchor, constant: -4).isActive = true
         taskLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
         
         dateLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 2).isActive = true
-        dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2).isActive = true
-        dateLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: nextImg.leadingAnchor, constant: -4).isActive = true
+        dateLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.25).isActive = true
         dateLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
         
         infoLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 2).isActive = true
         infoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2).isActive = true
-        infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.66).isActive = true
+        infoLabel.trailingAnchor.constraint(equalTo: dateLabel.leadingAnchor, constant: -2).isActive = true
         infoLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
         
-        backgroundColor = .appWhite
+        backgroundColor = .background
+        
     }
     
+   
     func setValues(task: Task, type: TaskTimeIntervall) {
         taskLabel.text = task.task
         
@@ -116,40 +135,9 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
 }
 
 
-class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource{
+class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-//    let stackView = UIStackView()
-////    var safeArea: UILayoutGuide!
-//
-//    lazy var dismiss: UIButton = {
-//        let btn = UIButton()
-//        btn.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
-//        btn.imageView!.tintColor = .gray
-//        btn.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(btn)
-//        btn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-//        btn.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
-//        btn.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        btn.heightAnchor.constraint(equalToConstant: 25).isActive = true
-//        btn.titleEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-//        return btn
-//    }()
-//
-//    lazy var titleLabel: UILabel = {
-//        let label = UILabel()
-//        label.font = UIFont.robotoBold(30)
-//        label.textColor = .background
-//        label.textAlignment = .center
-//        label.numberOfLines = -1
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.adjustsFontSizeToFitWidth = true
-//
-//        return label
-//    }()
-    
-//    let cellIdentifier = "taskTableViewIdentifier"
-//    var taskTableView = UITableView()
-    
+
     var subject: Subject? {
         didSet{
             if let subject = subject {
@@ -159,8 +147,7 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         }
     }
     
-//    var tasks = [Task]()
-    
+
     private var todayTasks = [Task]()
     private var weekTasks = [Task]()
     private var previousTasks = [Task]()
@@ -183,18 +170,11 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
     init() {
         super.init(frame: .zero)
         
-//        if let view = safeArea.owningView {
-//            view.addSubview(self)
-//        }
-//        
-//        self.safeArea = safeArea
         _ = dismiss
         dismissImage = #imageLiteral(resourceName: "back")
         cellIdentifier = "taskTableViewIdentifier"
         
-        backgroundColor = .appWhite
-        
-//        setupUserInterface()
+        backgroundColor = .background
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -202,34 +182,8 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         tableView.register(SubjectTaskDetailTableViewCellHeader.self, forHeaderFooterViewReuseIdentifier: headerIdentifier)
     }
     
-    
-//    private func setupUserInterface(){
-//        translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(titleLabel)
-//        addSubview(tableView)
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
-//
-////        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
-////        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
-//        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
-//        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
-//        titleLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
-//
-//        tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
-//        taskTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-//        taskTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-//        taskTableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-//
-//        taskTableView.backgroundColor = .clear
-//        taskTableView.tableFooterView = UIView()
-//        taskTableView.separatorColor = .background
-//
-//    }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
-//        let totalTasks = todayTasks.count + weekTasks.count + previousTasks.count
-//        return totalTasks > 3 ? 3 : totalTasks
         return dataStorage.count
     }
     
@@ -244,6 +198,9 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
     
         cell.setValues(task: task, type: dataStorage[indexPath.section].0)
     
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor.background.lighter(by: 0.1)
+        cell.selectedBackgroundView = selectedView
         
         return cell
     }
@@ -253,27 +210,35 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
         subjectTaskDetailView.data = dataStorage[indexPath.section].1[indexPath.row]
         subjectTaskDetailView.fadeIn()
+        
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        ViewController.controller.present(imagePicker, animated: true, completion: nil)
+        
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let originalImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        let url = info[UIImagePickerControllerReferenceURL] as! URL
+        let imageData = UIImageJPEGRepresentation(originalImage, 100) as Data?
+        
+        print("Image: \(url.path)")
+        
+        let path = MaterialManager.path("materials", Database.userID, "materials")
+        MaterialManager.addMaterial(data: imageData!, source: .task, sourceID: (data[0] as! Task).taskID, dataType: ".jpg", firestorePath: path)
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        tableView.cellForRow(at: indexPath)?.contentView.backgroundColor = UIColor.appWhite
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return dataStorage[section].0.rawValue
-//    }
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//
-//        let header = view as! UITableViewHeaderFooterView
-//        header.contentView.backgroundColor = .appWhite
-//        if let label = header.textLabel {
-//            label.addAndConstraint(to: header)
-//            label.textAlignment = .left
-//            label.textColor = .background
-//            label.font = UIFont.robotoBold(25)
-//        }
-//    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier) as! SubjectTaskDetailTableViewCellHeader

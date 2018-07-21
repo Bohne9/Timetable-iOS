@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Data {
+protocol LocalData {
     
     var map: [String : String]{
         get set

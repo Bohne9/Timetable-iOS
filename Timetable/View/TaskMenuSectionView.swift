@@ -121,7 +121,9 @@ class TaskMenuSectionView: MenuSectionView, UICollectionViewDataSource, UICollec
         
         let cell = collectionView.cellForItem(at: indexPath) as! TaskMenuSectionViewCell
         ViewController.controller.subjectViewController.open(task: cell.task!, subject: cell.subject!)
-        ViewController.controller.present(ViewController.controller.subjectViewController, animated: true, completion: nil)
+//        ViewController.controller.present(ViewController.controller.subjectViewController, animated: true, completion: nil)
+        ViewController.controller.presentChild(viewController: ViewController.controller.subjectViewController)
+        ViewController.controller.subjectViewController.present()
         
     }
     

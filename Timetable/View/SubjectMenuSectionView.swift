@@ -93,7 +93,9 @@ class SubjectMenuSectionView: MenuSectionView, UICollectionViewDataSource, UICol
         
         let viewController = ViewController.controller!
         viewController.subjectViewController.subject = getSubject(for: indexPath)
-        viewController.present(viewController.subjectViewController, animated: true, completion: nil)
+//        viewController.present(viewController.subjectViewController, animated: true, completion: nil)
+        viewController.presentChild(viewController: viewController.subjectViewController)
+        viewController.subjectViewController.present()
         
     }
     

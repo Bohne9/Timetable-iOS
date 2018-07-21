@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        MaterialManager.initMaterialManager()
+        
         let timestamp = Timestamp(date: Date())
         
         print("Timestamp String: \(timestamp.seconds) -- \(timestamp.dateValue())")

@@ -61,8 +61,7 @@ enum DragDirection{
     }
 }
 
-class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
-    
+class MasterDetailView<DataType: LocalData>: UIView, UIGestureRecognizerDelegate {
     
     var data: DataType? {
         didSet{
@@ -87,7 +86,7 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
     lazy var dismiss: UIButton = {
         let btn = UIButton()
         btn.setImage( #imageLiteral(resourceName: "Cross").withRenderingMode(.alwaysTemplate), for: .normal)
-        btn.imageView!.tintColor = .gray
+        btn.imageView!.tintColor = .appWhite
         btn.translatesAutoresizingMaskIntoConstraints = false
         addSubview(btn)
         btn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
@@ -108,7 +107,7 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
     lazy var imageHeader: UIImageView = {
         let img = UIImageView(image: #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate))
         img.contentMode = .scaleAspectFit
-        img.tintColor = .background
+        img.tintColor = .appWhite
         img.translatesAutoresizingMaskIntoConstraints = false
         
         return img
@@ -137,7 +136,7 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
 //        layer.shadowOffset = CGSize(width: 0, height: 10)
         layer.shadowColor = UIColor.black.cgColor
         layer.masksToBounds = false
-        backgroundColor = .appWhite
+        backgroundColor = .background
         
         
         // Setup superviews
@@ -150,7 +149,7 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
         stackView.addAndConstraint(to: scrollView)
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        stackView.backgroundColor = .red
+        stackView.backgroundColor = .background
         
         stackView.spacing = 20
         stackView.axis = .vertical
@@ -166,11 +165,13 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
         addStackedView(titleLabel)
         
         titleLabel.font = UIFont.robotoBold(30)
-        titleLabel.textColor = .background
+        titleLabel.textColor = .appWhite
         titleLabel.textAlignment = .center
         
         setupPanGesture()
     }
+    
+    
     
     private func setupPanGesture(){
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
@@ -289,6 +290,10 @@ class MasterDetailView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
             animator.isReversed = true
             animator.addAnimations {
                 self.layer.shadowOpacity = 0.7
+            }
+        }else {
+            animator.addCompletion { (_) in
+                self.layer.shadowOpacity = 0.0
             }
         }
         animator.continueAnimation(withTimingParameters: nil, durationFactor: 1)

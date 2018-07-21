@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class TimetableLesson: Data, CustomStringConvertible, Comparable{
+class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
     
     static func > (lhs: TimetableLesson, rhs: Double) -> Bool {
         return lhs.endValue > rhs
