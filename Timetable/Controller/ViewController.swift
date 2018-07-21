@@ -81,9 +81,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         
         Database.database.delegate = self
         
-//        createGradientBackground(topLeftCL: UIColor.background, bottomRightCL: UIColor.lightBlack)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(rotateDevice), name: Notification.Name.UIDeviceOrientationDidChange, object: nil)
+        view.backgroundColor = .background
         
         homeView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(homeView)
@@ -104,14 +102,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         toCurrentDay()
         
         view.translatesAutoresizingMaskIntoConstraints = true
-        
-
-//        for _ in 0...10 {
-//            Database.database.addTask(["userID" : Database.userID,
-//                                   "subjectID" : "eJNR6LJA5xpiqIKzVXtx",
-//                                   "task" : "Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! Test Task! ",
-//                                   "timestamp" : "\(Timestamp(date: Date()).seconds)"])
-//        }
+    
     }
     
     private func setupTimetableView(){
@@ -227,19 +218,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         view.layer.cornerRadius = 5.0
     }
 
-    
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-//        return true
-//    }
-//
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        print("\(otherGestureRecognizer.accessibilityLabel ?? "nil")")
-//        return true
-//    }
-    
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
+
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         
@@ -258,7 +237,6 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         swipePercent = max(swipePercent, -0.05)
         swipePercent = min(swipePercent, 1.05)
         
-//        print("ViewController swipe: \(swipePercent)")
         
         switch gesture.state {
             
@@ -361,75 +339,12 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         if scrollView.contentOffset.y != 0 {
             scrollView.contentOffset.y = 0
         }
-        
-        let percentage = scrollView.contentOffset.x / scrollView.contentSize.width
-//        dayIndicator.scroll(percentage)
-        
+//
+//        let percentage = scrollView.contentOffset.x / scrollView.contentSize.width
+////        dayIndicator.scroll(percentage)
+//
     }
     
-    @objc func rotateDevice(){
-        
-        if let gl = self.gl {
-            gl.removeFromSuperlayer()
-        }
-        
-        let gl = CAGradientLayer()
-        
-        self.gl = gl
-        
-        gl.colors = [UIColor.background.cgColor, UIColor.lightBlack.cgColor]
-        
-        //        gl.locations = [0.0, 0.6]
-        gl.startPoint = CGPoint(x: 0.4, y: 0.4)
-        gl.endPoint = CGPoint(x: 0.7, y: 1.0)
-        
-        
-        
-        gl.frame.size = UIScreen.main.bounds.size
-//        let ori = UIDevice.current.orientation
-//        if ori == .portrait || ori == .portraitUpsideDown {
-//            gl.frame.size = view.frame.size
-//        }else {
-//            gl.frame.size = CGSize(width: view.frame.height, height: view.frame.width)
-//        }
-        
-//        gl.frame.size = CGSize(width: view.frame.height, height: view.frame.width)
-        //        view.layer.addSublayer(gl)
-        view.layer.insertSublayer(gl, at: 0)
-        
-    }
-    
-    private var gl: CAGradientLayer?
-    
-    private func createGradientBackground(topLeftCL: UIColor, bottomRightCL: UIColor){
-        if let gl = self.gl {
-            gl.removeFromSuperlayer()
-        }
-        
-        let gl = CAGradientLayer()
-        
-        self.gl = gl
-        
-        gl.colors = [topLeftCL.cgColor, bottomRightCL.cgColor]
-        
-//        gl.locations = [0.0, 0.6]
-        gl.startPoint = CGPoint(x: 0.4, y: 0.4)
-        gl.endPoint = CGPoint(x: 0.7, y: 1.0)
-        
-        
-        let animation = CABasicAnimation(keyPath: "colors")
-        animation.duration = 2.5
-        animation.fromValue = [bottomRightCL.cgColor, bottomRightCL.cgColor]
-        animation.toValue = gl.colors
-        animation.fillMode = kCAFillModeForwards
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        
-        gl.frame.size = view.frame.size
-//        view.layer.addSublayer(gl)
-        view.layer.insertSublayer(gl, at: 0)
-        
-        gl.add(animation, forKey: "animateGradient")
-    }
     
     func lessonAdd(reason: DataUpdateType, _ data: [String : String]) {
         let lesson = TimetableLesson(data)
@@ -561,17 +476,25 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
     }
     
     func presentChild(viewController: UIViewController) {
+        if childViewControllers.contains(viewController) {
+            return
+        }
         
         addChildViewController(viewController)
         view.addSubview(viewController.view)
         let v = viewController.view!
         v.translatesAutoresizingMaskIntoConstraints = false
-        
+
         v.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        v.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        v.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        v.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        v.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        v.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        v.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
+        view.layoutIfNeeded()
+        viewController.view.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
+        viewController.view.layoutIfNeeded()
+        
+        print("SAFE AREA: \(viewController.view.safeAreaInsets)")
     }
     
     func setupCardPopupViewController(_ viewController: CardPopupViewController) {

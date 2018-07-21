@@ -8,7 +8,7 @@
 
 import FirebaseFirestore
 
-class Task : Data, Equatable {
+class Task : LocalData, Equatable {
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.taskID == rhs.taskID
     }

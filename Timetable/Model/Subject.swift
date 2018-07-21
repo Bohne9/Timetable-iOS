@@ -8,7 +8,7 @@
 
 import FirebaseFirestore
 
-class Subject: Data, Equatable, Hashable{
+class Subject: LocalData, Equatable, Hashable{
     
     var hashValue: Int
     

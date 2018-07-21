@@ -9,39 +9,6 @@
 import UIKit
 
 class SubjectTaskDetailView: MasterDetailView<Task> {
-
-//    var task: Task?
-//
-//    let scrollView = UIScrollView()
-//    let stackView = UIStackView()
-//
-//    lazy var dismiss: UIButton = {
-//        let btn = UIButton()
-//        btn.setImage(#imageLiteral(resourceName: "back").withRenderingMode(.alwaysTemplate), for: .normal)
-//        btn.imageView!.tintColor = .gray
-//        btn.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(btn)
-//        btn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-//        btn.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
-//        btn.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        btn.heightAnchor.constraint(equalToConstant: 25).isActive = true
-//        btn.titleEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-//
-//        return btn
-//    }()
-//
-//
-//    lazy var imageHeader: UIImageView = {
-//        let img = UIImageView(image: #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate))
-//        img.contentMode = .scaleAspectFit
-//        img.tintColor = .background
-//        img.translatesAutoresizingMaskIntoConstraints = false
-//
-//        return img
-//    }()
-//
-    
-    
     
     let taskTextView = UITextView()
     
@@ -61,7 +28,7 @@ class SubjectTaskDetailView: MasterDetailView<Task> {
         dismissImage = #imageLiteral(resourceName: "back")
         materialTitle.text = "Materials"
         
-        backgroundColor = .appWhite
+        backgroundColor = .background
         
         addStackedView(taskTextView, horizontalBounds: 30, height: 150)
         setupUILabel(materialTitle, fontSize: 20)
@@ -69,8 +36,8 @@ class SubjectTaskDetailView: MasterDetailView<Task> {
         taskTextView.isEditable = false
         
         taskTextView.font = UIFont.robotoBold(16)
-        taskTextView.textColor = .background
-        taskTextView.backgroundColor = .appWhite
+        taskTextView.textColor = .appWhite
+        taskTextView.backgroundColor = .background
         taskTextView.isScrollEnabled = false
         
     }
@@ -79,7 +46,7 @@ class SubjectTaskDetailView: MasterDetailView<Task> {
     private func setupUILabel(_ label: UILabel, fontSize: CGFloat, height: CGFloat? = nil) {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.robotoBold(fontSize)
-        label.textColor = .background
+        label.textColor = .appWhite
         
         addStackedView(label, height: height)
     }

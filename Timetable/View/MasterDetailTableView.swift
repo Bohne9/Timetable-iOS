@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate {
+class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDelegate {
     
 //    let scrollView = UIScrollView()
 //    let stackView = UIStackView()
@@ -23,7 +23,7 @@ class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate
     lazy var dismiss: UIButton = {
         let btn = UIButton()
         btn.setImage( #imageLiteral(resourceName: "Cross").withRenderingMode(.alwaysTemplate), for: .normal)
-        btn.imageView!.tintColor = .gray
+        btn.imageView!.tintColor = .appWhite
         btn.translatesAutoresizingMaskIntoConstraints = false
         addSubview(btn)
         btn.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
@@ -56,7 +56,7 @@ class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate
     let titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.robotoBold(30)
-        label.textColor = .background
+        label.textColor = .appWhite
         label.textAlignment = .center
         label.numberOfLines = -1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,36 +80,13 @@ class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate
 //        layer.shadowOffset = CGSize(width: 0, height: 20)
         layer.shadowColor = UIColor.black.cgColor
         layer.masksToBounds = false
-        backgroundColor = .appWhite
+        backgroundColor = .background
         
         
-        // Setup superviews
-//        translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(scrollView)
-//        scrollView.constraint(to: self)
-//
-//        // Add and constraint stackview to scrollview
-//        stackView.addAndConstraint(to: scrollView)
-//        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-//
-//        stackView.backgroundColor = .red
-//
-//        stackView.spacing = 20
-//        stackView.axis = .vertical
-//        stackView.distribution = .equalSpacing
-//        stackView.alignment = .center
-//
         dismiss.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         
         setupUserInterface()
         
-//        stackView.addArrangedSubview(imageHeader)
-//        imageHeader.widthAnchor.constraint(lessThanOrEqualToConstant: 150).isActive = true
-//        imageHeader.heightAnchor.constraint(lessThanOrEqualToConstant: 150).isActive = true
-        
-//        addStackedView(titleLabel)
-    
         setupPanGesture()
     }
     
@@ -147,27 +124,12 @@ class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate
         
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
-        tableView.separatorColor = UIColor.background.withAlphaComponent(0.4)
+        
+        tableView.separatorColor = UIColor.appWhite.withAlphaComponent(0.4)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
         
     }
-    
-//    func addStackedView(_ view: UIView, horizontalBounds: CGFloat = 20, height: CGFloat? = 50) {
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.addArrangedSubview(view)
-//
-//        //        view.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
-//        view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: horizontalBounds).isActive = true
-//        view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -horizontalBounds).isActive = true
-//
-//
-//        if let height = height {
-//            view.heightAnchor.constraint(lessThanOrEqualToConstant: height).isActive = true
-//        }
-//
-//        stackView.layoutIfNeeded()
-//        scrollView.contentSize = stackView.frame.size
-//    }
-    
+
     @objc func handleDismiss(){
 //        let duration: Double = Double(delegate?.dismissAnimationDuration(self) ?? 0.25)
         let duration = 0.25
@@ -261,6 +223,10 @@ class MasterDetailTableView<DataType: Data>: UIView, UIGestureRecognizerDelegate
             animator.isReversed = true
             animator.addAnimations {
                 self.layer.shadowOpacity = 0.7
+            }
+        }else {
+            animator.addCompletion { (_) in
+                self.layer.shadowOpacity = 0.0
             }
         }
         animator.continueAnimation(withTimingParameters: nil, durationFactor: 1)

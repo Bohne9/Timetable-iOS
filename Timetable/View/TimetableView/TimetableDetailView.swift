@@ -61,7 +61,7 @@ class TimetableDetailView: AnimationUIView, UITableViewDelegate, UITableViewData
         layer.cornerRadius = 10
         
         addAnimationFunction { (value) in
-            self.layer.cornerRadius = 10.0 * (1.0 - pow(value, 3))
+            self.layer.cornerRadius = 5.0 + 5.0 * (1.0 - pow(value, 3))
         }
         
         

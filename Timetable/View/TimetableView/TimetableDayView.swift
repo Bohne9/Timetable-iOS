@@ -28,7 +28,6 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
     let cellName = "lessonCell"
     
     // AutoLayout Constraints
-    
     var pan: UIPanGestureRecognizer!
     
     init() {
@@ -54,12 +53,11 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
     }
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-
+        
         let gesture = gestureRecognizer as! UIPanGestureRecognizer
         let vel = gesture.velocity(in: self)
         return abs(vel.y) > abs(vel.x)// && vel.y < 0
     }
-    
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -73,7 +71,7 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
                 loadDetailView()
             }
             
-            detailView!.handlePan(gesture)
+            detailView?.handlePan(gesture)
         }else {
            ViewController.controller.handlePanSwipeDown(gesture)
         }
