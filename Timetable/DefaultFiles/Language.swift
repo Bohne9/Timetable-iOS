@@ -119,6 +119,9 @@ class Language {
             
             // Lesson Control
             LanguageElement("Today", translations: [.English : "Today", .German : "Heute"]),
+            LanguageElement("This week", translations: [.English : "This week", .German : "Diese Woche"]),
+            LanguageElement("MoreThanAWeek", translations: [.English : "More than a week ago", .German : "Älter als eine Woche"]),
+            
             LanguageElement("LessonControl_AddLesson", translations: [.English : "Add Lesson", .German : "Neuer Eintrag"]),
             
             // Add Lesson View
@@ -137,6 +140,15 @@ class Language {
             
             LanguageElement("Task", translations: [.English : "Task", .German : "Aufgabe"]),
             LanguageElement("Tasks", translations: [.English : "Tasks", .German : "Aufgaben"]),
+            
+            LanguageElement("Chat", translations: [.English : "Chat", .German : "Chat"]),
+            LanguageElement("Chats", translations: [.English : "Chats", .German : "Chats"]),
+            
+            LanguageElement("News", translations: [.English : "News", .German : "Neuigkeiten"]),
+            
+            LanguageElement("Material", translations: [.English : "Material", .German : "Material"]),
+            LanguageElement("Materials", translations: [.English : "Materials", .German : "Materialien"]),
+            
             
             // General terms
             LanguageElement("Add", translations: [.English : "Add", .German : "Hinzufügen"]),

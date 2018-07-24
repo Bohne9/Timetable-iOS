@@ -39,15 +39,14 @@ class MaterialManager {
         return nil
     }
     
-    static func getMaterialFromLocalStorage(url: URL) -> Material? {
+    static func getDataFromLocalStorage(_ path: String) -> Data? {
         
-        let file = try? FileHandle(forReadingFrom: url)
+        let file = try? FileHandle(forReadingFrom: URL(fileURLWithPath: path))
 
         if file != nil {
             let data = file!.readDataToEndOfFile()
-
-            let material = Material(localPath: url.path, data: data, materialID: url.path)
-            return material
+            file!.closeFile()
+            return data
             
         }
         return nil
@@ -91,8 +90,114 @@ class MaterialManager {
         return pathRef.putFile(from: url, metadata: nil, completion: completion)
     }
     
-    static func addMaterial(data: Data, source: MaterialSource, sourceID: String, dataType: String, firestorePath: String) {
     
+    /// The method getMaterial loads data from the local storage in case the client has the data on the device. Otherwise
+    /// the data will be downloaded from firebase Storage
+    ///
+    /// - Parameters:
+    ///   - path: Path where the data is located
+    ///   - materialID: materialID of the data. This ID should be downloaded from firebase firestore.
+    ///   - completion: completion for processing the data. If the material object is not nil there was no error. Otherwise there is an error.
+    static func getMaterial(path: String, materialID: String, _ completion: @escaping (Material?, Error?) -> Void){
+        
+        // Look if the data is on the local storage
+        if materialIsOnLocalStorage(path: path) {
+            // If the data can be loaded
+            if let data = getDataFromLocalStorage(path) {
+                let material = Material(localPath: path, data: data, materialID: materialID)
+                completion(material, nil)
+            }
+        }else {
+            // Otherwise download the data from Firebase
+            let reference = fireStorage.reference(withPath: path)
+            
+            // Get the maxDownloadSize from the user settings
+            let maxSize = Settings.shared.maxDownloadSize
+            
+            reference.getData(maxSize: maxSize) { (data, error) in
+                guard let data = data else{
+                    completion(nil, error!)
+                    return
+                }
+                let material = Material(firebasePath: URL(fileURLWithPath: path), data: data, materialID: materialID)
+                completion(material, nil)
+                
+                // If Settings say always store the data on the local store -> do so
+                if Settings.shared.alwaysStoreMaterialToLocalStorage {
+                    do {
+                        // Try to store the data on the local storage
+                        try data.write(to: URL(fileURLWithPath: path))
+                    }catch {
+                        print("Error while trying to save a file on the local device")
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    // TODO:
+    // - Material picker integrieren
+    // - Material TableView übersicht anfangen
+   
+    
+    /// Adds the data from the url to Firebase Storage.
+    /// Uses the clients userID as owner of the data and adds the data to his material collection
+    /// - Parameters:
+    ///   - url: URL where the data is stored
+    ///   - source: The source where the data comes from. (task, chat, news, ...)
+    ///   - sourceID: The ID of the source where the data comes from. TaskID or ChatID and so on...
+    ///   - completion: - completion: Callback for if the upload was successfull or not. Material?: if nil = an error occured
+    static func addMaterial(url: URL,  source: MaterialSource, sourceID: String, _ completion: @escaping (Material?) -> Void) {
+        // Get the data from the local storage
+        if let data = getDataFromLocalStorage(url.path) {
+            let firestorePath = MaterialManager.path("materials", Database.userID, "materials")
+            let dataName = url.lastPathComponent
+            let dataType = url.pathExtension
+            addMaterial(data: data, dataName: dataName, source: source, sourceID: sourceID, dataType: dataType, firestorePath: firestorePath, completion)
+        }else {
+            // If data is not available
+            completion(nil)
+        }
+        
+    }
+    
+    
+    
+    /// Adds the data from the url to Firebase Storage.
+    /// Uses the clients userID as owner of the data and adds the data to a custom material path
+    /// - Parameters:
+    ///   - url: URL where the data is stored
+    ///   - source: The source where the data comes from. (task, chat, news, ...)
+    ///   - sourceID: The ID of the source where the data comes from. TaskID or ChatID and so on...
+    ///   - firestorePath: Path where Metadata should be stored in Firestore.
+    ///   - completion: - completion: Callback for if the upload was successfull or not. Material?: if nil = an error occured
+    static func addMaterial(url: URL,  source: MaterialSource, sourceID: String, firestorePath: String, _ completion: @escaping (Material?) -> Void) {
+        // Get the data from the local storage
+        if let data = getDataFromLocalStorage(url.path) {
+            let dataName = url.lastPathComponent
+            let dataType = url.pathExtension
+            addMaterial(data: data, dataName: dataName, source: source, sourceID: sourceID, dataType: dataType, firestorePath: firestorePath, completion)
+        }else {
+            // If data is not available
+            completion(nil)
+        }
+        
+    }
+    
+    
+    
+    /// The method addMaterial takes some Data saves it to Firebase Storage and puts the Metadata into Firebase Firestore
+    ///
+    /// - Parameters:
+    ///   - data: Data that should be saved in the cloud
+    ///   - source: The source where the data comes from. (task, chat, news, ...)
+    ///   - sourceID: The ID of the source where the data comes from. TaskID or ChatID and so on...
+    ///   - dataType: Format of the data. .jpg, .pdf and so on
+    ///   - firestorePath: Path where Metadata should be stored in Firestore.
+    ///   - completion: Callback for if the upload was successfull or not. Material?: if nil = an error occured
+    static func addMaterial(data: Data, dataName: String, source: MaterialSource, sourceID: String, dataType: String, firestorePath: String, _ completion: @escaping (Material?) -> Void) {
+        
         let firestore = Database.database.connection
         
         var reference: DocumentReference? = nil
@@ -104,15 +209,19 @@ class MaterialManager {
         // The data is not complete yet. The path to the Firebase Storage file needs to be added (Firestore documentID required(unknown))
         // The documentID is part of the path where the data will be stored and this path needs to be stored in Firestore.
         var metadata: [String : Any] = [
+            "dataName" : dataName,
             "userID" : Database.userID,
             "timestamp" : Timestamp(date: Date())
         ]
+        
         // push the metadata to Firestore
         reference = firestore.collection(firestorePath).addDocument(data: metadata) { (error) in
             guard error == nil else {
+                completion(nil)
                 print("Error while adding Material Metadata to Firestore! Error: \(error!)")
                 return
             }
+            
             // Now the halfcomplete metadata is successfully stored in Firestore
             
             // Complete the firebase Storage file path
@@ -120,18 +229,41 @@ class MaterialManager {
             firebasePath = path("material", Database.userID, source.rawValue, sourceID, reference!.documentID) + dataType
             
             // Push the file data to Firebase Storage
-            _ = uploadMaterial(to: firebasePath, data: data) { (metadata, error) in
-                guard metadata != nil else {
+            _ = uploadMaterial(to: firebasePath, data: data) { (meta, error) in
+                guard meta != nil else {
                     print("There was an error while trying to upload a material to Firebase Storage! Error: \(error!.localizedDescription)")
+                    completion(nil)
                     return
                 }
+                
+                
+                // Complete the metadata. Now the client knows the document ID of the Firestore document
+                metadata["storagePath"] = firebasePath
+                
+                // Again push the metadata(now complete) to Firestore
+                firestore.document(firestorePath + "/" + reference!.documentID).setData(metadata, completion: { (error) in
+                    guard error == nil else {
+                        // Something went wrong -> completion failed
+                        completion(nil)
+                        return
+                    }
+                    
+                    // Create Material Object out of the data
+                    
+                    let material = Material(firebasePath: URL(fileURLWithPath: firebasePath), data: data, materialID: reference!.documentID)
+                    material.timestamp = Timestamp(date: Date())
+                    // Everything was fine, completed successfully!
+                    completion(material)
+                    
+                    if Settings.shared.alwaysStoreMaterialToLocalStorage {
+                        do {
+                            try data.write(to: URL(fileURLWithPath: firebasePath))
+                        }catch {
+                            print("Error while trying to store a file on the local device")
+                        }
+                    }
+                })
             }
-            
-            // Complete the metadata. Now the client knows the document ID of the Firestore document
-            metadata["storagePath"] = firebasePath
-            
-            // Again push the metadata(now complete) to Firestore
-            firestore.document(firestorePath + "/" + reference!.documentID).setData(metadata)
         }
     }
     

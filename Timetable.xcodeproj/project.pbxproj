@@ -70,9 +70,12 @@
 		4F008E9120F769AC009A3E72 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E7F20F769AA009A3E72 /* LICENSE.txt */; };
 		4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */; };
 		4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E8120F769AC009A3E72 /* Extensions.swift */; };
+		4F0BD04A210510BD00F356C5 /* MaterialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */; };
+		4F10E5002104D6B300F06375 /* MaterialDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */; };
 		4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */; };
 		4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */; };
 		4F414ED820FE2F5200E1E084 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED720FE2F5200E1E084 /* Material.swift */; };
+		4F51BE1C2104625F003624B7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51BE1B2104625F003624B7 /* Settings.swift */; };
 		74B268BCEB8CC3B617E1D747 /* Pods_TimetableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A01D1BFD76BAB4AF48CDE /* Pods_TimetableUITests.framework */; };
 		D12A80F8884F776C8BB219D8 /* Pods_TimetableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */; };
 /* End PBXBuildFile section */
@@ -178,9 +181,12 @@
 		4F008E7F20F769AA009A3E72 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		4F008E8120F769AC009A3E72 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableView.swift; sourceTree = "<group>"; };
 		4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialManager.swift; sourceTree = "<group>"; };
 		4F414ED720FE2F5200E1E084 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		4F51BE1B2104625F003624B7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimetableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3864395C3985B7ACA9AA95 /* Pods-TimetableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DC0C5B269A1F830FBE14072 /* Pods-TimetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -325,6 +331,7 @@
 				4F008E2220F7682C009A3E72 /* Updateable.swift */,
 				4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */,
 				4F414ED720FE2F5200E1E084 /* Material.swift */,
+				4F51BE1B2104625F003624B7 /* Settings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,13 +345,10 @@
 				4F008E3220F7685A009A3E72 /* LessonAddView.swift */,
 				4F008E3620F7685A009A3E72 /* LessonControls.swift */,
 				4F008E2D20F76859009A3E72 /* LessonEditView .swift */,
-				4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */,
-				4F008E3520F7685A009A3E72 /* MasterDetailView.swift */,
 				4F008E3020F76859009A3E72 /* MenuSectionView.swift */,
 				4F008E3820F7685A009A3E72 /* SubjectMenuSectionView.swift */,
-				4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */,
-				4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */,
 				4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */,
+				4F10E4FB2104D60100F06375 /* SubjectDetailViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,12 +393,65 @@
 			path = OldCode;
 			sourceTree = "<group>";
 		};
+		4F0BD04B210747C500F356C5 /* MasterViews */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */,
+				4F008E3520F7685A009A3E72 /* MasterDetailView.swift */,
+			);
+			path = MasterViews;
+			sourceTree = "<group>";
+		};
+		4F10E4FB2104D60100F06375 /* SubjectDetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				4F0BD04B210747C500F356C5 /* MasterViews */,
+				4F10E4FC2104D63400F06375 /* Task */,
+				4F51BE1A210461FA003624B7 /* Material */,
+				4F10E4FE2104D66B00F06375 /* News */,
+				4F10E4FD2104D66400F06375 /* Chat */,
+			);
+			path = SubjectDetailViews;
+			sourceTree = "<group>";
+		};
+		4F10E4FC2104D63400F06375 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */,
+				4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		4F10E4FD2104D66400F06375 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		4F10E4FE2104D66B00F06375 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		4F3A2FD120F76B4900F17EB5 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4F51BE1A210461FA003624B7 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */,
+				4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */,
+			);
+			path = Material;
 			sourceTree = "<group>";
 		};
 		8CDE24B810CF8C30E138F5A8 /* Frameworks */ = {
@@ -655,10 +712,12 @@
 				4F008E4020F7685A009A3E72 /* FacebookNativeAdView.swift in Sources */,
 				4F008E2620F7682C009A3E72 /* Database.swift in Sources */,
 				4F008E2820F7682C009A3E72 /* Subject.swift in Sources */,
+				4F10E5002104D6B300F06375 /* MaterialDetailTableView.swift in Sources */,
 				4F008E6520F7688C009A3E72 /* DayIndicator.swift in Sources */,
 				4F008E6820F7688C009A3E72 /* ChatView.swift in Sources */,
 				4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */,
 				4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */,
+				4F51BE1C2104625F003624B7 /* Settings.swift in Sources */,
 				4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */,
 				4F008E2A20F7682C009A3E72 /* Time.swift in Sources */,
 				4F414ED820FE2F5200E1E084 /* Material.swift in Sources */,
@@ -668,6 +727,7 @@
 				4F008E6A20F7688C009A3E72 /* MenuBar.swift in Sources */,
 				4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */,
 				4F008E3D20F7685A009A3E72 /* SubjectTaskDetailView.swift in Sources */,
+				4F0BD04A210510BD00F356C5 /* MaterialDetailTableViewCell.swift in Sources */,
 				4F008E5920F7687A009A3E72 /* ViewController.swift in Sources */,
 				4F008E3C20F7685A009A3E72 /* MenuSectionView.swift in Sources */,
 				4F008E4320F7685A009A3E72 /* MasterDetailTableView.swift in Sources */,
@@ -862,6 +922,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE78DLA237;
 				INFOPLIST_FILE = Timetable/Info.plist;
@@ -872,6 +933,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schueller.Timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -884,6 +946,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KE78DLA237;
 				INFOPLIST_FILE = Timetable/Info.plist;
@@ -894,6 +957,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schueller.Timetable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -5,7 +5,7 @@
 //  Created by Jonah Schueller on 01.07.18.
 //  Copyright © 2018 Jonah Schueller. All rights reserved.
 //
-
+import MobileCoreServices
 import UIKit
 
 enum TaskTimeIntervall: String{
@@ -13,7 +13,7 @@ enum TaskTimeIntervall: String{
     
     case today = "Today"
     case week = "This week"
-    case previous = "Previous"
+    case previous = "MoreThanAWeek"
 }
 
 
@@ -33,6 +33,20 @@ class SubjectTaskDetailTableViewCellHeader: UITableViewHeaderFooterView {
         titleLabel.textColor = .appWhite
         titleLabel.font = UIFont.robotoBold(20)
         
+        let lp = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        addGestureRecognizer(lp)
+    }
+    
+    @objc func longPress(){
+        print("longpress")
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "DELETE", style: .default) { (action) in
+            print("DELETED")
+        }
+        actionSheet.addAction(deleteAction)
+        
+        ViewController.controller.present(actionSheet, animated: true, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -135,7 +149,7 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
 }
 
 
-class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource, UIDocumentPickerDelegate, UINavigationControllerDelegate{
 
 
     var subject: Subject? {
@@ -212,24 +226,39 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         subjectTaskDetailView.fadeIn()
         
         
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        ViewController.controller.present(imagePicker, animated: true, completion: nil)
+//        let documentPicker = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: UIDocumentPickerMode.import)
+//        documentPicker.delegate = self
+//        ViewController.controller.present(documentPicker, animated: true, completion: nil)
         
     }
     
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        if let url = urls.first {
+            MaterialManager.addMaterial(url: url, source: .task, sourceID: data[0].taskID) { (material) in
+                print("Finished")
+            }
+        }
+        
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let originalImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
-        let url = info[UIImagePickerControllerReferenceURL] as! URL
-        let imageData = UIImageJPEGRepresentation(originalImage, 100) as Data?
-        
-        print("Image: \(url.path)")
-        
-        let path = MaterialManager.path("materials", Database.userID, "materials")
-        MaterialManager.addMaterial(data: imageData!, source: .task, sourceID: (data[0] as! Task).taskID, dataType: ".jpg", firestorePath: path)
-        
-        picker.dismiss(animated: true, completion: nil)
-        
+//        let originalImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+//        let url = info[UIImagePickerControllerReferenceURL] as! URL
+//        let imageData = UIImageJPEGRepresentation(originalImage, 100) as Data?
+//
+//        print("Image: \(url.path)")
+//
+//        let path = MaterialManager.path("materials", Database.userID, "materials")
+//
+//        MaterialManager.addMaterial(data: imageData!, source: .task, sourceID: (data[0] ).taskID, dataType: ".jpg", firestorePath: path) { (result) in
+//
+//        }
+//
+//        picker.dismiss(animated: true, completion: nil)
+//
     }
     
 //    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -242,7 +271,7 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier) as! SubjectTaskDetailTableViewCellHeader
-        header.titleLabel.text = dataStorage[section].0.rawValue
+        header.titleLabel.text = Language.translate(dataStorage[section].0.rawValue)
         return header
     }
     

@@ -24,7 +24,8 @@ class MenuSectionView: UIView, UIGestureRecognizerDelegate{
     }
     
     func setTitle(_ str: String) {
-        title.attributedText = NSAttributedString(string: str, attributes: [.underlineStyle : NSUnderlineStyle.styleSingle.rawValue])
+        title.text = str
+//        title.attributedText = NSAttributedString(string: str, attributes: [.underlineStyle : NSUnderlineStyle.styleSingle.rawValue])
     }
     
     func setTitle(translate: String) {
