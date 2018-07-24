@@ -71,8 +71,6 @@
 		4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */; };
 		4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E8120F769AC009A3E72 /* Extensions.swift */; };
 		4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */; };
-		4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */; };
-		4F414ED820FE2F5200E1E084 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED720FE2F5200E1E084 /* Material.swift */; };
 		74B268BCEB8CC3B617E1D747 /* Pods_TimetableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48A01D1BFD76BAB4AF48CDE /* Pods_TimetableUITests.framework */; };
 		D12A80F8884F776C8BB219D8 /* Pods_TimetableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */; };
 /* End PBXBuildFile section */
@@ -179,8 +177,6 @@
 		4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		4F008E8120F769AC009A3E72 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialManager.swift; sourceTree = "<group>"; };
-		4F414ED720FE2F5200E1E084 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		71C8A62DC03BF337339FC583 /* Pods_TimetableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimetableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3864395C3985B7ACA9AA95 /* Pods-TimetableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DC0C5B269A1F830FBE14072 /* Pods-TimetableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimetableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimetableTests/Pods-TimetableTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -323,8 +319,6 @@
 				4F008E1B20F7682C009A3E72 /* TimetableDay.swift */,
 				4F008E1C20F7682C009A3E72 /* TimetableLesson.swift */,
 				4F008E2220F7682C009A3E72 /* Updateable.swift */,
-				4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */,
-				4F414ED720FE2F5200E1E084 /* Material.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,10 +652,8 @@
 				4F008E6520F7688C009A3E72 /* DayIndicator.swift in Sources */,
 				4F008E6820F7688C009A3E72 /* ChatView.swift in Sources */,
 				4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */,
-				4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */,
 				4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */,
 				4F008E2A20F7682C009A3E72 /* Time.swift in Sources */,
-				4F414ED820FE2F5200E1E084 /* Material.swift in Sources */,
 				4F008E4D20F7686B009A3E72 /* TimetableDayView.swift in Sources */,
 				4F008E6720F7688C009A3E72 /* AbstractView.swift in Sources */,
 				4F008E5820F7687A009A3E72 /* SubjectViewController.swift in Sources */,
