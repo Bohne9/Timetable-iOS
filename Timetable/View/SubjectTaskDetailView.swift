@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SubjectTaskDetailView: MasterDetailView<Task> {
     
     let taskTextView = UITextView()
