@@ -5,7 +5,7 @@
 //  Created by Jonah Schueller on 01.07.18.
 //  Copyright © 2018 Jonah Schueller. All rights reserved.
 //
-
+import MobileCoreServices
 import UIKit
 
 enum TaskTimeIntervall: String{
@@ -13,7 +13,7 @@ enum TaskTimeIntervall: String{
     
     case today = "Today"
     case week = "This week"
-    case previous = "Previous"
+    case previous = "MoreThanAWeek"
 }
 
 
@@ -33,6 +33,20 @@ class SubjectTaskDetailTableViewCellHeader: UITableViewHeaderFooterView {
         titleLabel.textColor = .appWhite
         titleLabel.font = UIFont.robotoBold(20)
         
+        let lp = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+        addGestureRecognizer(lp)
+    }
+    
+    @objc func longPress(){
+        print("longpress")
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "DELETE", style: .default) { (action) in
+            print("DELETED")
+        }
+        actionSheet.addAction(deleteAction)
+        
+        ViewController.controller.present(actionSheet, animated: true, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -242,7 +256,7 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier) as! SubjectTaskDetailTableViewCellHeader
-        header.titleLabel.text = dataStorage[section].0.rawValue
+        header.titleLabel.text = Language.translate(dataStorage[section].0.rawValue)
         return header
     }
     

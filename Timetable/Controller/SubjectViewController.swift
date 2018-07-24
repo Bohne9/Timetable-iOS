@@ -44,7 +44,7 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     lazy var chatId: DescribtedTextField = {
         let tf = DescribtedTextField("Subject Identifier")
-    
+        
         return tf
     }()
     
@@ -164,10 +164,10 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
         stackView.addArrangedSubview(titleLabel)
         titleLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
         
-        let task = createMenuButton(title: "Tasks")
-        let news = createMenuButton(title: "News")
-        let char = createMenuButton(title: "Chat")
-        let materials = createMenuButton(title: "Materials")
+        let task = createMenuButton(title: Language.translate("Tasks"))
+        let news = createMenuButton(title: Language.translate("News"))
+        let char = createMenuButton(title: Language.translate("Chat"))
+        let materials = createMenuButton(title: Language.translate("Materials"))
         
         task.addTarget(self, action: #selector(fadeSubjectTaskDetailViewIn), for: .touchUpInside)
         
@@ -177,6 +177,7 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
         
         chatId.heightAnchor.constraint(equalToConstant: 60).isActive = true
         chatId.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+        
         
     }
     

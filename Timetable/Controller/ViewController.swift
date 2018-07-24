@@ -44,6 +44,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
     var subjectMenuSectoinView = SubjectMenuSectionView()
     var taskMenuSectionView = TaskMenuSectionView()
     
+    
     // SubjectViewController
     var subjectViewController = SubjectViewController()
     
@@ -90,7 +91,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         TimetableView.detailView = homeView
         
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanSwipeDown(_:)))
-        homeView.addGestureRecognizer(panGesture)
+        view.addGestureRecognizer(panGesture)
         panGesture.delegate = self
         
         setupTimetableView()
@@ -163,7 +164,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         closeMenu.translatesAutoresizingMaskIntoConstraints = false
         homeTop.addSubview(closeMenu)
         
-        closeMenu.bottomAnchor.constraint(equalTo: menu.topAnchor).isActive = true
+        closeMenu.topAnchor.constraint(equalTo: homeTop.topAnchor, constant: 15).isActive = true
         closeMenu.leadingAnchor.constraint(equalTo: homeTop.leadingAnchor, constant: 15).isActive = true
         closeMenu.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         closeMenu.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
@@ -174,7 +175,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         closeMenu.imageView!.tintColor = .appWhite
         closeMenu.titleEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
-        closeMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.5)
+        closeMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.5).translatedBy(x: 0, y: -25)
         closeMenu.alpha = 0.0
         
         // Setup search hide button
@@ -251,10 +252,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
                     self.animateReversed()
                 }
             })
-            animator.addCompletion { (_) in
-                self.state = self.state == 0 ? 1 : 0
-//                print("Complete animation: \(self.state)")
-            }
+            
             animator.startAnimation()
             animator.pauseAnimation()
             
@@ -265,10 +263,15 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         case .ended:
             let vel = gesture.velocity(in: gesture.view).y
             
+            print("Gesture ended \(vel)")
             // Swipe up
             if (vel < 0 && state == 0) || (vel > 0 && state == 1) {
 //                print("Reverse animation")
                 animator.isReversed = true
+            }else {
+                animator.addCompletion { (_) in
+                    self.state = self.state == 0 ? 1 : 0
+                }
             }
             
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 1)
@@ -278,15 +281,14 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         }
     }
     
-    
     func animate(){
         timetableView.transform = CGAffineTransform(translationX: 0, y: 100)
         timetableView.alpha = 0
         
         menu.transform = CGAffineTransform(translationX: 0, y: 25).scaledBy(x: 1.0, y: 0.5)
-//        menu.transform = CGAffineTransform(scaleX: 1.0, y: 0.0)
+//        menu.transform = CGAffineTransform(scaleX: 1.0, y: 0.5)
         menu.alpha = 0.0
-        closeMenu.transform = CGAffineTransform(translationX: 0, y: 25).scaledBy(x: 1.0, y: 1.0)
+        closeMenu.transform = CGAffineTransform(translationX: 0, y: 0).scaledBy(x: 1.0, y: 1.0)
 //        closeMenu.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         closeMenu.alpha = 1.0
         
@@ -304,8 +306,8 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         menu.transform = CGAffineTransform(translationX: 0, y: 0).scaledBy(x: 1.0, y: 1.0)
 //        menu.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         menu.alpha = 1.0
-        closeMenu.transform = CGAffineTransform(translationX: 0, y: 0).scaledBy(x: 1.0, y: 0.5)
-//        closeMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.0)
+        closeMenu.transform = CGAffineTransform(translationX: 0, y: -25).scaledBy(x: 1.0, y: 0.5)
+//        closeMenu.transform = CGAffineTransform(scaleX: 1.0, y: 0.5)
         closeMenu.alpha = 0.0
         
         self.subjectMenuSectoinView.alpha = 0.0
