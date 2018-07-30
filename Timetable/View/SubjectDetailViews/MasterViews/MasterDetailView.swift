@@ -66,6 +66,7 @@ class MasterDetailView<DataType: LocalData>: UIView, UIGestureRecognizerDelegate
     var data: DataType? {
         didSet{
             if let d = data {
+                self.data = d
                 reload(d)
             }
         }
@@ -190,7 +191,7 @@ class MasterDetailView<DataType: LocalData>: UIView, UIGestureRecognizerDelegate
         
         
         if let height = height {
-            view.heightAnchor.constraint(lessThanOrEqualToConstant: height).isActive = true
+            view.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         
         stackView.layoutIfNeeded()
@@ -311,7 +312,6 @@ class MasterDetailView<DataType: LocalData>: UIView, UIGestureRecognizerDelegate
     }
     
     func reload(_ data: DataType){
-        
     }
     
     func fadeInLayoutChanges(){

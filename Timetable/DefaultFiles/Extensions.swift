@@ -90,8 +90,9 @@ extension UIColor {
     // Old blue gradient color : #47495D
 //    static let background = UIColor(hexString: "#47495D")
 //    static let background = UIColor(hexString: "#222427")
-    static let background = UIColor(hexString: "#222222")
-    
+    static let background = UIColor(hexString: "#33353E")
+    // 24272C
+    static let backgroundContrast = UIColor(hexString: "#24272C")
     //    static let backgroundDarker = UIColor.background.darker()!
     //    static let backgroundLighter = UIColor.background.lighter()!
     //

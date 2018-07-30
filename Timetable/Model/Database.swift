@@ -176,7 +176,6 @@ class Database {
             return
         }
         
-        print("Add listerner")
         let identifier = subject.globalIdentifier!
         
         // Adding the snapshot listener
@@ -197,6 +196,7 @@ class Database {
                     if let subject = self.getSubject(globalIdentifier: task.subjectIdentifier) {
                         self.tasks.append(task)
                         subject.addTask(task: task)
+                        self.addTaskMaterialSnapshotListener(task: task)
                         self.updateUserInterface(reason: .TaskAdd, task.map)
                     }
                 case .modified:
@@ -219,7 +219,70 @@ class Database {
     
     
     
+    /// Adds a snapshot listerner to the tasks/{subjectIdentifier}/tasks/{taskID}//material/ collection.
+    /// In case the listerner is triggered: Extract the materialPath from the data that comes with it.
+    /// With this material path get the metadata from the Material.
+    /// MaterialPath = The path to the firestore material document
+    /// - Parameter task: Task for the Snapshot listener
+    private func addTaskMaterialSnapshotListener(task: Task) {
+        let subjectIdentifier = task.subjectIdentifier
+        let materialPath = path("tasks", subjectIdentifier, "tasks", task.taskID, "materials")
+//        print("Add Material listener")
+        connection.collection(materialPath).addSnapshotListener({ (snapshot, error) in
+            guard let documents = snapshot?.documentChanges else {
+                self.printError("listening for task material", error!)
+                return
+            }
+            
+            for doc in documents {
+                switch doc.type {
+                case .added:
+                    // get the material collection path. This path is stored in the task/materials/metaDataPath field
+                    let metaDataPath = doc.document.data()["materialPath"] as! String
+                    
+                    // get the material metadata from firestore
+                    self.getMaterialMetadata(materialPath: metaDataPath, { (material, error) in
+                        guard let material = material else {
+                            self.printError("getting some material metadata", error!)
+                            return
+                        }
+                        print("Got some material: \(material.url.path)")
+                        // Add the received material metadata to the task and the subject
+                        task.materials.append(material)
+                        self.getSubject(globalIdentifier: subjectIdentifier)?.material.append(material)
+                    })
+                    self.updateUserInterface(reason: .TaskAdd, task.map)
+                case .modified:
+                    break
+                case .removed:
+                    break
+                }
+            
+            }
+        })
+    }
     
+    
+    
+    /// Downloads the metadata for a Material object.
+    /// Process: The materialPath is stored in a task, news, or chat document. The materialPath is the path to the matieral document in firestore.
+    /// In the material document is the metadata for the material like storagePath, userID, timestamp and so on.
+    /// - Parameters:
+    ///   - materialPath: Path to the matieral document
+    ///   - completion: completion callback, if matieral is nil = error.
+    private func getMaterialMetadata(materialPath: String, _ completion: @escaping (Material?, Error?) -> Void) {
+        
+        connection.document(materialPath).getDocument { (docSnapshot, error) in
+            guard let data = docSnapshot?.data() else {
+                completion(nil, error!)
+                return
+            }
+            let material = Material(firebasePath: URL(fileURLWithPath: data["storagePath"] as! String), materialID: docSnapshot!.documentID, userID: data["userID"] as! String)
+            material.timestamp = data["timestamp"] as! Timestamp
+            completion(material, nil)
+        }
+        
+    }
     
     /// Reloads the subjects and removes the ones that have no more lessons
     private func reloadSubjects(){

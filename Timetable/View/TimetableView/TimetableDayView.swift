@@ -37,11 +37,15 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
         
         layer.masksToBounds = false
         layer.cornerRadius = 10
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.5
         
         setupUserInterface()
         addPanGesture()
 //        lessonTable.panGestureRecognizer.delegate = self
-        backgroundColor = .contrast
+        backgroundColor = .backgroundContrast
     }
     
     
@@ -150,7 +154,7 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         dayLabel.font = UIFont.robotoMedium(25)
-        dayLabel.textColor = .background
+        dayLabel.textColor = .white
         
         dayLabel.topAnchor.constraint(equalTo: lessonCount.bottomAnchor, constant: 5).isActive = true
         dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
@@ -167,7 +171,7 @@ class TimetableDayView : UIView, UITableViewDelegate, UITableViewDataSource, UIG
         lessonTable.alwaysBounceVertical = false
         lessonTable.delegate = self
         lessonTable.dataSource = self
-        lessonTable.backgroundColor = .contrast
+        lessonTable.backgroundColor = .backgroundContrast
         
         addSubview(lessonTable)
         lessonTable.translatesAutoresizingMaskIntoConstraints = false

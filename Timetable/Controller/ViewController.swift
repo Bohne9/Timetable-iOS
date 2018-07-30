@@ -91,7 +91,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
         TimetableView.detailView = homeView
         
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanSwipeDown(_:)))
-        view.addGestureRecognizer(panGesture)
+        homeView.addGestureRecognizer(panGesture)
         panGesture.delegate = self
         
         setupTimetableView()
@@ -234,7 +234,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
     @objc func handlePanSwipeDown(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
         
-        var swipePercent = (translation.y * (self.state == 1 ? -1.0 : 1.0)) / 200.0
+        var swipePercent = (translation.y * (self.state == 1 ? -1.0 : 1.0)) / 150.0
         swipePercent = max(swipePercent, -0.05)
         swipePercent = min(swipePercent, 1.05)
         
@@ -258,7 +258,7 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
             
         case .changed:
             
-            animator.fractionComplete = swipePercent
+            animator?.fractionComplete = swipePercent
             
         case .ended:
             let vel = gesture.velocity(in: gesture.view).y
@@ -269,12 +269,12 @@ class ViewController : UIViewController, DataUpdateDelegate, UIScrollViewDelegat
 //                print("Reverse animation")
                 animator.isReversed = true
             }else {
-                animator.addCompletion { (_) in
+                animator?.addCompletion { (_) in
                     self.state = self.state == 0 ? 1 : 0
                 }
             }
             
-            animator.continueAnimation(withTimingParameters: nil, durationFactor: 1)
+            animator?.continueAnimation(withTimingParameters: nil, durationFactor: 1)
             
         default:
             print("Some other case occured TimetableDetailView.handlePan")

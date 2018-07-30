@@ -35,6 +35,9 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
         return btn
     }()
     
+    
+    var titleExtension = ""
+    
     // TableView cell identifier
     var cellIdentifier: String = "undefined"
     let tableView = UITableView()
@@ -125,8 +128,9 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         
-        tableView.separatorColor = UIColor.appWhite.withAlphaComponent(0.4)
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
+//        tableView.separatorColor = UIColor.appWhite.withAlphaComponent(0.4)
+        tableView.separatorColor = .clear
+//        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 25)
         
     }
 

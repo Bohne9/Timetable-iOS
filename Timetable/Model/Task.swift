@@ -32,6 +32,7 @@ class Task : LocalData, Equatable {
     /// Timestamp when the message was written
     var timestamp: Timestamp!
     
+    var materials = [Material]()
     
     var map: [String : String] {
         get{

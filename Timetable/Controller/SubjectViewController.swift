@@ -49,7 +49,8 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     
-    var subjectTaskDetailTableView = SubjectTaskDetailTableView()
+    var taskDetailTableView = TaskDetailTableView()
+    var materialDetailTableView = MaterialDetailTableView()
     
 //    var subjectTaskDetailView = SubjectTaskDetailView()
     
@@ -100,9 +101,13 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         
         
-        view.addSubview(subjectTaskDetailTableView)
-        subjectTaskDetailTableView.constraint(to: view.safeAreaLayoutGuide)
-        subjectTaskDetailTableView.transform = CGAffineTransform(translationX: view.frame.width, y: 0)
+        view.addSubview(taskDetailTableView)
+        taskDetailTableView.constraint(to: view.safeAreaLayoutGuide)
+        taskDetailTableView.transform = CGAffineTransform(translationX: view.frame.width, y: 0)
+        
+        view.addSubview(materialDetailTableView)
+        materialDetailTableView.constraint(to: view.safeAreaLayoutGuide)
+        materialDetailTableView.transform = CGAffineTransform(translationX: view.frame.width, y: 0)
         
         
         createTopShadowBlocker()
@@ -152,8 +157,8 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
             print("Default case of SubjectViewController panGesture handler dismiss")
         }
         
-        
     }
+    
     
     func constraintUserInterface(){
         
@@ -166,12 +171,15 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let task = createMenuButton(title: Language.translate("Tasks"))
         let news = createMenuButton(title: Language.translate("News"))
-        let char = createMenuButton(title: Language.translate("Chat"))
+        let chat = createMenuButton(title: Language.translate("Chat"))
         let materials = createMenuButton(title: Language.translate("Materials"))
         
-        task.addTarget(self, action: #selector(fadeSubjectTaskDetailViewIn), for: .touchUpInside)
+        task.addTarget(self, action: #selector(fadeTaskDetailViewIn), for: .touchUpInside)
         
-        subjectTaskDetailTableView.dismiss.addTarget(self, action: #selector(fadeSubjectTaskDetailViewOut), for: .touchUpInside)
+        taskDetailTableView.dismiss.addTarget(self, action: #selector(fadeTaskDetailViewOut), for: .touchUpInside)
+        
+        materials.addTarget(self, action: #selector(fadeMaterialDetailViewIn), for: .touchUpInside)
+        materialDetailTableView.dismiss.addTarget(self, action: #selector(fadeMaterialDetailViewOut), for: .touchUpInside)
         
         stackView.addArrangedSubview(chatId)
         
@@ -226,38 +234,55 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func open(task: Task, subject: Subject) {
         self.subject = subject
-        subjectTaskDetailTableView.transform = .identity
+        taskDetailTableView.transform = .identity
         view.layoutIfNeeded()
-        subjectTaskDetailTableView.open(task, subject)
+        taskDetailTableView.open(task, subject)
+        
     }
     
     
     
     ///
     /// - Parameter inOut: 0 = in, 1 out
-    private func fadeSubjectTaskDetailView(inOut: CGFloat){
+    private func fadeTaskDetailView(inOut: CGFloat){
         UIView.animate(withDuration: 0.2) {
-            self.subjectTaskDetailTableView.transform = CGAffineTransform(translationX: self.view.frame.width * inOut, y: 0)
+            self.taskDetailTableView.transform = CGAffineTransform(translationX: self.view.frame.width * inOut, y: 0)
             self.view.layoutIfNeeded()
         }
     }
     
-    @objc func fadeSubjectTaskDetailViewIn(){
-        fadeSubjectTaskDetailView(inOut: 0)
+    @objc func fadeTaskDetailViewIn(){
+        fadeTaskDetailView(inOut: 0)
     }
-    @objc func fadeSubjectTaskDetailViewOut(){
-        fadeSubjectTaskDetailView(inOut: 1)
+    @objc func fadeTaskDetailViewOut(){
+        fadeTaskDetailView(inOut: 1)
     }
     
+    /// - Parameter inOut: 0 = in, 1 out
+    private func fadeMaterialDetailView(inOut: CGFloat){
+        UIView.animate(withDuration: 0.2) {
+            self.materialDetailTableView.transform = CGAffineTransform(translationX: self.view.frame.width * inOut, y: 0)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func fadeMaterialDetailViewIn(){
+        fadeMaterialDetailView(inOut: 0)
+    }
+    @objc func fadeMaterialDetailViewOut(){
+        fadeMaterialDetailView(inOut: 1)
+    }
+    
+    
     func reloadData(){
-        
         if let sub = subject{
-            subjectTaskDetailTableView.subject = subject
+            taskDetailTableView.subject = subject
+            materialDetailTableView.subject = subject
             titleLabel.text = sub.lessonName
             chatId.text = sub.globalIdentifier
         }
     }
-
+    
     @objc func handleDismiss(){
 //        ViewController.controller.dismiss(animated: true, completion: nil)
         prepareDismiss()

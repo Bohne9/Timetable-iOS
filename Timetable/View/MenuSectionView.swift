@@ -45,7 +45,7 @@ class MenuSectionView: UIView, UIGestureRecognizerDelegate{
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         title.font = UIFont.robotoBold(20)
-        title.textColor = .appWhite
+        title.textColor = .white
         
         title.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
         title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true

@@ -13,16 +13,16 @@ class SubjectMenuSectionViewCell : UICollectionViewCell {
     var image: UIImageView = {
         var img = UIImageView()
         img.contentMode = .scaleAspectFit
-        img.tintColor = .background
+        img.tintColor = .white
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = #imageLiteral(resourceName: "informatik")
+        img.image = #imageLiteral(resourceName: "informatik").withRenderingMode(.alwaysTemplate)
         return img
     }()
     
     var label: UILabel = {
         let l = UILabel()
         l.font = UIFont.robotoBold(15)
-        l.textColor = .background
+        l.textColor = .white
         l.textAlignment = .center
         l.numberOfLines = -1
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,12 @@ class SubjectMenuSectionViewCell : UICollectionViewCell {
         layer.masksToBounds = false
         layer.cornerRadius = 5
         
-        backgroundColor = .appWhite
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 3
+        layer.shadowOpacity = 0.5
+        
+        backgroundColor = .backgroundContrast
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         addSubview(image)

@@ -14,7 +14,7 @@ class Material: LocalData{
         get{
             return [
                 "userID" : Database.userID,
-                "timestamp" : timestamp != nil ? "\(timestamp!.seconds)" : "\(Timestamp(date: Date()).seconds)",
+                "timestamp" : timestamp != nil ? "\(timestamp.seconds)" : "\(Timestamp(date: Date()).seconds)",
                 "storagePath" : url.path
             ]
         }
@@ -24,14 +24,15 @@ class Material: LocalData{
     }
     
 
-    var data: Data
+    var data: Data?
     var suffix: String
     var dataName: String
     var url: URL
     var userID: String
     var materialID: String
-    var timestamp: Timestamp?
+    var timestamp: Timestamp!
     var isLocal: Bool = true
+    var temporaryLoacalURL: URL?
     
     private init(url: URL, data: Data, materialID: String, userID: String) {
         self.url = url
@@ -52,6 +53,23 @@ class Material: LocalData{
         isLocal = true
     }
     
+    private init(url: URL, materialID: String, userID: String) {
+        self.url = url
+        suffix = url.pathExtension
+        dataName = url.lastPathComponent
+        self.userID = userID
+        self.materialID = materialID
+    }
+    
+    convenience init(firebasePath: URL, materialID: String, userID: String = Database.userID) {
+        self.init(url: firebasePath, materialID: materialID, userID: userID)
+        isLocal = false
+    }
+    
+    convenience init(localPath: String, materialID: String, userID: String = Database.userID) {
+        self.init(url: URL(fileURLWithPath: localPath), materialID: materialID, userID: userID)
+        isLocal = true
+    }
     
 }
 

@@ -20,10 +20,10 @@
 		4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2220F7682C009A3E72 /* Updateable.swift */; };
 		4F008E2C20F7682C009A3E72 /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2320F7682C009A3E72 /* LocalData.swift */; };
 		4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2D20F76859009A3E72 /* LessonEditView .swift */; };
-		4F008E3A20F7685A009A3E72 /* SubjectTaskDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */; };
+		4F008E3A20F7685A009A3E72 /* TaskDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2E20F76859009A3E72 /* TaskDetailTableView.swift */; };
 		4F008E3B20F7685A009A3E72 /* AnimationUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E2F20F76859009A3E72 /* AnimationUiView.swift */; };
 		4F008E3C20F7685A009A3E72 /* MenuSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3020F76859009A3E72 /* MenuSectionView.swift */; };
-		4F008E3D20F7685A009A3E72 /* SubjectTaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */; };
+		4F008E3D20F7685A009A3E72 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3120F76859009A3E72 /* TaskDetailView.swift */; };
 		4F008E3E20F7685A009A3E72 /* LessonAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3220F7685A009A3E72 /* LessonAddView.swift */; };
 		4F008E3F20F7685A009A3E72 /* TaskMenuSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */; };
 		4F008E4020F7685A009A3E72 /* FacebookNativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E3420F7685A009A3E72 /* FacebookNativeAdView.swift */; };
@@ -35,7 +35,6 @@
 		4F008E4D20F7686B009A3E72 /* TimetableDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4720F7686B009A3E72 /* TimetableDayView.swift */; };
 		4F008E4E20F7686B009A3E72 /* TimetableLessonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */; };
 		4F008E4F20F7686B009A3E72 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4920F7686B009A3E72 /* TimetableView.swift */; };
-		4F008E5020F7686B009A3E72 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4A20F7686B009A3E72 /* TestView.swift */; };
 		4F008E5120F7686B009A3E72 /* TimetableLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E4B20F7686B009A3E72 /* TimetableLessonView.swift */; };
 		4F008E5620F7687A009A3E72 /* CardPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5220F76879009A3E72 /* CardPopupViewController.swift */; };
 		4F008E5720F7687A009A3E72 /* AlertViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E5320F7687A009A3E72 /* AlertViewConroller.swift */; };
@@ -71,6 +70,8 @@
 		4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */; };
 		4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F008E8120F769AC009A3E72 /* Extensions.swift */; };
 		4F0BD04A210510BD00F356C5 /* MaterialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */; };
+		4F10AEF5210E148300AD1025 /* MasterDetailAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10AEF4210E148300AD1025 /* MasterDetailAddView.swift */; };
+		4F10AEF7210E15D700AD1025 /* TaskDetailTableViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10AEF6210E15D700AD1025 /* TaskDetailTableViewElements.swift */; };
 		4F10E5002104D6B300F06375 /* MaterialDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */; };
 		4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */; };
 		4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */; };
@@ -133,10 +134,10 @@
 		4F008E2220F7682C009A3E72 /* Updateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updateable.swift; sourceTree = "<group>"; };
 		4F008E2320F7682C009A3E72 /* LocalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		4F008E2D20F76859009A3E72 /* LessonEditView .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LessonEditView .swift"; sourceTree = "<group>"; };
-		4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTaskDetailTableView.swift; sourceTree = "<group>"; };
+		4F008E2E20F76859009A3E72 /* TaskDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableView.swift; sourceTree = "<group>"; };
 		4F008E2F20F76859009A3E72 /* AnimationUiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUiView.swift; sourceTree = "<group>"; };
 		4F008E3020F76859009A3E72 /* MenuSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionView.swift; sourceTree = "<group>"; };
-		4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTaskDetailView.swift; sourceTree = "<group>"; };
+		4F008E3120F76859009A3E72 /* TaskDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		4F008E3220F7685A009A3E72 /* LessonAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonAddView.swift; sourceTree = "<group>"; };
 		4F008E3320F7685A009A3E72 /* TaskMenuSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskMenuSectionView.swift; sourceTree = "<group>"; };
 		4F008E3420F7685A009A3E72 /* FacebookNativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookNativeAdView.swift; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		4F008E4720F7686B009A3E72 /* TimetableDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableDayView.swift; sourceTree = "<group>"; };
 		4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableLessonStack.swift; sourceTree = "<group>"; };
 		4F008E4920F7686B009A3E72 /* TimetableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
-		4F008E4A20F7686B009A3E72 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4F008E4B20F7686B009A3E72 /* TimetableLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimetableLessonView.swift; sourceTree = "<group>"; };
 		4F008E5220F76879009A3E72 /* CardPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPopupViewController.swift; sourceTree = "<group>"; };
 		4F008E5320F7687A009A3E72 /* AlertViewConroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewConroller.swift; sourceTree = "<group>"; };
@@ -182,6 +182,8 @@
 		4F008E8020F769AB009A3E72 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		4F008E8120F769AC009A3E72 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableViewCell.swift; sourceTree = "<group>"; };
+		4F10AEF4210E148300AD1025 /* MasterDetailAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDetailAddView.swift; sourceTree = "<group>"; };
+		4F10AEF6210E15D700AD1025 /* TaskDetailTableViewElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewElements.swift; sourceTree = "<group>"; };
 		4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableView.swift; sourceTree = "<group>"; };
 		4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialManager.swift; sourceTree = "<group>"; };
@@ -367,7 +369,6 @@
 		4F008E4520F7685C009A3E72 /* TimetableView */ = {
 			isa = PBXGroup;
 			children = (
-				4F008E4A20F7686B009A3E72 /* TestView.swift */,
 				4F008E4720F7686B009A3E72 /* TimetableDayView.swift */,
 				4F008E4620F7686B009A3E72 /* TimetableDetailView.swift */,
 				4F008E4820F7686B009A3E72 /* TimetableLessonStack.swift */,
@@ -398,6 +399,7 @@
 			children = (
 				4F008E3720F7685A009A3E72 /* MasterDetailTableView.swift */,
 				4F008E3520F7685A009A3E72 /* MasterDetailView.swift */,
+				4F10AEF4210E148300AD1025 /* MasterDetailAddView.swift */,
 			);
 			path = MasterViews;
 			sourceTree = "<group>";
@@ -417,8 +419,9 @@
 		4F10E4FC2104D63400F06375 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				4F008E2E20F76859009A3E72 /* SubjectTaskDetailTableView.swift */,
-				4F008E3120F76859009A3E72 /* SubjectTaskDetailView.swift */,
+				4F008E2E20F76859009A3E72 /* TaskDetailTableView.swift */,
+				4F008E3120F76859009A3E72 /* TaskDetailView.swift */,
+				4F10AEF6210E15D700AD1025 /* TaskDetailTableViewElements.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				4F008E2B20F7682C009A3E72 /* Updateable.swift in Sources */,
 				4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */,
 				4F51BE1C2104625F003624B7 /* Settings.swift in Sources */,
+				4F10AEF7210E15D700AD1025 /* TaskDetailTableViewElements.swift in Sources */,
 				4F008E3920F7685A009A3E72 /* LessonEditView .swift in Sources */,
 				4F008E2A20F7682C009A3E72 /* Time.swift in Sources */,
 				4F414ED820FE2F5200E1E084 /* Material.swift in Sources */,
@@ -726,14 +730,14 @@
 				4F008E5820F7687A009A3E72 /* SubjectViewController.swift in Sources */,
 				4F008E6A20F7688C009A3E72 /* MenuBar.swift in Sources */,
 				4F008E9320F769AC009A3E72 /* Extensions.swift in Sources */,
-				4F008E3D20F7685A009A3E72 /* SubjectTaskDetailView.swift in Sources */,
+				4F008E3D20F7685A009A3E72 /* TaskDetailView.swift in Sources */,
 				4F0BD04A210510BD00F356C5 /* MaterialDetailTableViewCell.swift in Sources */,
 				4F008E5920F7687A009A3E72 /* ViewController.swift in Sources */,
 				4F008E3C20F7685A009A3E72 /* MenuSectionView.swift in Sources */,
 				4F008E4320F7685A009A3E72 /* MasterDetailTableView.swift in Sources */,
 				4F008E5720F7687A009A3E72 /* AlertViewConroller.swift in Sources */,
 				4F008E2720F7682C009A3E72 /* Message.swift in Sources */,
-				4F008E3A20F7685A009A3E72 /* SubjectTaskDetailTableView.swift in Sources */,
+				4F008E3A20F7685A009A3E72 /* TaskDetailTableView.swift in Sources */,
 				4F008E4C20F7686B009A3E72 /* TimetableDetailView.swift in Sources */,
 				4F008E2420F7682C009A3E72 /* TimetableDay.swift in Sources */,
 				4F008E2920F7682C009A3E72 /* Task.swift in Sources */,
@@ -749,11 +753,11 @@
 				4F008E5120F7686B009A3E72 /* TimetableLessonView.swift in Sources */,
 				4F008E4120F7685A009A3E72 /* MasterDetailView.swift in Sources */,
 				4F008E6C20F7688C009A3E72 /* ProfileView.swift in Sources */,
+				4F10AEF5210E148300AD1025 /* MasterDetailAddView.swift in Sources */,
 				4F008E4F20F7686B009A3E72 /* TimetableView.swift in Sources */,
 				4F008E2520F7682C009A3E72 /* TimetableLesson.swift in Sources */,
 				4F008E4220F7685A009A3E72 /* LessonControls.swift in Sources */,
 				4F008E4E20F7686B009A3E72 /* TimetableLessonStack.swift in Sources */,
-				4F008E5020F7686B009A3E72 /* TestView.swift in Sources */,
 				4F008E6B20F7688C009A3E72 /* MenuController.swift in Sources */,
 				4F008E3E20F7685A009A3E72 /* LessonAddView.swift in Sources */,
 			);

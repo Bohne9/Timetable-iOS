@@ -82,6 +82,7 @@ class TimetableView : UIScrollView, UIGestureRecognizerDelegate {
     
     func scrollToDay(day: Day) {
         setContentOffset(CGPoint(x: (UIScreen.main.bounds.width - 60) * CGFloat(day.rawValue - 1), y: 0), animated: true)
+        
     }
     
     func setTodayLabel(){

@@ -131,6 +131,8 @@ class Language {
             LanguageElement("AddLesson_Start", translations: [.English : "Begin", .German : "Begin"]),
             LanguageElement("AddLesson_End", translations: [.English : "End", .German : "Ende"]),
             
+            LanguageElement("ZeroWord", translations: [.English : "No", .German : "Keine"]),
+            
             // Chat
             LanguageElement("Chat_NextLesson", translations: [.English : "Next lesson at", .German : "Nächste Stunde am"]),
             
@@ -146,7 +148,7 @@ class Language {
             
             LanguageElement("News", translations: [.English : "News", .German : "Neuigkeiten"]),
             
-            LanguageElement("Material", translations: [.English : "Material", .German : "Material"]),
+            LanguageElement("Material", translations: [.English : "Material", .German : "Materiale"]),
             LanguageElement("Materials", translations: [.English : "Materials", .German : "Materialien"]),
             
             

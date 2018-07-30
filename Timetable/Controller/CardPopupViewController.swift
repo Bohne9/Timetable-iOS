@@ -203,11 +203,13 @@ class CardPopupViewController: UIViewController, UIGestureRecognizerDelegate {
     func fadeIn(){
         topConstraint.constant = topOffset
         bottomConstraint.constant = 0
+        ViewController.controller.statusBarStyle = .lightContent
     }
     
     func fadeOut(){
         topConstraint.constant = view.frame.height
         bottomConstraint.constant = view.frame.height
+        ViewController.controller.statusBarStyle = .default
     }
     
     func present(){

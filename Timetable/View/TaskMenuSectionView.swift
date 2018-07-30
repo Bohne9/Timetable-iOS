@@ -17,7 +17,7 @@ class TaskMenuSectionViewCell: UICollectionViewCell {
     var subjectLabel: UILabel = {
         let l = UILabel()
         l.font = UIFont.robotoBold(15)
-        l.textColor = .background
+        l.textColor = .white
         l.textAlignment = .center
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
@@ -26,7 +26,7 @@ class TaskMenuSectionViewCell: UICollectionViewCell {
     var date: UILabel = {
         let l = UILabel()
         l.font = UIFont.robotoBold(15)
-        l.textColor = .background
+        l.textColor = .white
         l.textAlignment = .center
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
@@ -39,7 +39,12 @@ class TaskMenuSectionViewCell: UICollectionViewCell {
         layer.masksToBounds = false
         layer.cornerRadius = 5
         
-        backgroundColor = .appWhite
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 3
+        layer.shadowOpacity = 0.5
+        
+        backgroundColor = .backgroundContrast
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(date)
         addSubview(subjectLabel)

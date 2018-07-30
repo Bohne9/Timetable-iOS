@@ -149,18 +149,8 @@ class SubjectTaskDetailTableViewCell: UITableViewCell {
 }
 
 
-class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource, UIDocumentPickerDelegate, UINavigationControllerDelegate{
+class TaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UITableViewDataSource, UIDocumentPickerDelegate, UINavigationControllerDelegate{
 
-
-    var subject: Subject? {
-        didSet{
-            if let subject = subject {
-                titleLabel.text = "\(subject.lessonName)\n\(Language.translate("Tasks"))"
-                reloadData(subject.tasks)
-            }
-        }
-    }
-    
 
     private var todayTasks = [Task]()
     private var weekTasks = [Task]()
@@ -187,6 +177,8 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         _ = dismiss
         dismissImage = #imageLiteral(resourceName: "back")
         cellIdentifier = "taskTableViewIdentifier"
+        
+        titleExtension = Language.translate("Tasks")
         
         backgroundColor = .background
         
@@ -279,6 +271,11 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         return 50
     }
     
+    override func reload() {
+        super.reload()
+        reloadData(subject?.tasks)
+    }
+    
     
     /// Remaps the tasks and reloads the tableView
     func reloadData(_ tasks: [Task]? = nil){
@@ -344,7 +341,6 @@ class SubjectTaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelega
         if previousTasks.count != 0 {
             dataStorage.append((.previous, previousTasks))
         }
-        
         
     }
     

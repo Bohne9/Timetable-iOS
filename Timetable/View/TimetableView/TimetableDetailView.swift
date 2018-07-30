@@ -59,6 +59,10 @@ class TimetableDetailView: AnimationUIView, UITableViewDelegate, UITableViewData
         
         layer.masksToBounds = false
         layer.cornerRadius = 10
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 10)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.5
         
         addAnimationFunction { (value) in
             self.layer.cornerRadius = 5.0 + 5.0 * (1.0 - pow(value, 3))
@@ -71,7 +75,7 @@ class TimetableDetailView: AnimationUIView, UITableViewDelegate, UITableViewData
         lessonTable.panGestureRecognizer.accessibilityLabel = "DetailLessonTable"
         
         lessonTable.cellLayoutMarginsFollowReadableWidth = true
-        backgroundColor = .contrast
+        backgroundColor = .backgroundContrast
     }
     
     func setValues(_ day: TimetableDay, _ today: Bool){
@@ -239,7 +243,7 @@ class TimetableDetailView: AnimationUIView, UITableViewDelegate, UITableViewData
         
         dayLabel.font = UIFont.robotoMedium(25)
         
-        dayLabel.textColor = .background
+        dayLabel.textColor = .white
         
         dayLabel.topAnchor.constraint(equalTo: lessonCount.bottomAnchor, constant: 5).isActive = true
         addAnimationConstraint(anchor: dayLabel.leadingAnchor, equalTo: leadingAnchor, start: 10, end: 70)
@@ -258,7 +262,7 @@ class TimetableDetailView: AnimationUIView, UITableViewDelegate, UITableViewData
         lessonTable.separatorStyle = .none
         lessonTable.delegate = self
         lessonTable.dataSource = self
-        lessonTable.backgroundColor = .contrast
+        lessonTable.backgroundColor = .backgroundContrast
         lessonTable.alwaysBounceVertical = false
         
         addSubview(lessonTable)

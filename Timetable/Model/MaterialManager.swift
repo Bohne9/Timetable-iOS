@@ -99,7 +99,7 @@ class MaterialManager {
     ///   - materialID: materialID of the data. This ID should be downloaded from firebase firestore.
     ///   - completion: completion for processing the data. If the material object is not nil there was no error. Otherwise there is an error.
     static func getMaterial(path: String, materialID: String, _ completion: @escaping (Material?, Error?) -> Void){
-        
+        print("Downloading material: \(path)")
         // Look if the data is on the local storage
         if materialIsOnLocalStorage(path: path) {
             // If the data can be loaded
@@ -119,7 +119,9 @@ class MaterialManager {
                     completion(nil, error!)
                     return
                 }
-                let material = Material(firebasePath: URL(fileURLWithPath: path), data: data, materialID: materialID)
+                let url = URL(string: "gs://timetabl-df669.appspot.com\(path)")!
+                
+                let material = Material(firebasePath: url, data: data, materialID: materialID)
                 completion(material, nil)
                 
                 // If Settings say always store the data on the local store -> do so
@@ -198,6 +200,7 @@ class MaterialManager {
     ///   - completion: Callback for if the upload was successfull or not. Material?: if nil = an error occured
     static func addMaterial(data: Data, dataName: String, source: MaterialSource, sourceID: String, dataType: String, firestorePath: String, _ completion: @escaping (Material?) -> Void) {
         
+        
         let firestore = Database.database.connection
         
         var reference: DocumentReference? = nil
@@ -271,7 +274,6 @@ class MaterialManager {
     
     
     
-    
     static func addMaterial(url: URL, source: MaterialSource, sourceID: String, firestorePath: String) {
         
         if let data = loadDataFromLocalFile(url: url) {
@@ -281,7 +283,6 @@ class MaterialManager {
             var reference: DocumentReference? = nil
             
             let firebasePath = path("material", Database.userID, source.rawValue, sourceID, url.lastPathComponent)
-            
             
             let metadata: [String : Any] = [
                 "userID" : Database.userID,
@@ -309,8 +310,6 @@ class MaterialManager {
 //            let path = "/material/\(Database.userID)/\()"
 //            print("Added material(\(url.path) to firebase with path: \(firebasePath)")
             // Upload data to Firebase Storage
-            
-        }else {
             
         }
         

@@ -20,6 +20,7 @@ class Subject: LocalData, Equatable, Hashable{
     var globalIdentifier: String!
     var lessonName: String
     var tasks = [Task]()
+    var material = [Material]()
     
     var map: [String : String] {
         get {

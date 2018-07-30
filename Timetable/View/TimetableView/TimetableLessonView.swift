@@ -50,7 +50,7 @@ class TimetableLessonView : UITableViewCell {
         //        time.adjustsFontSizeToFitWidth = true
         //        room.adjustsFontSizeToFitWidth = true
         //
-        nameTextField.textColor = .background
+        nameTextField.textColor = .white
         nameTextField.font = .robotoMedium(16)
         
         time.textColor = .gray
