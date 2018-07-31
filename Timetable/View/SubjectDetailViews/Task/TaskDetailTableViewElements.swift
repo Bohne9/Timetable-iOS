@@ -26,27 +26,50 @@ class TaskDetailTableViewCellHeader: UITableViewHeaderFooterView {
         
         contentView.backgroundColor = .background
         
-        titleLabel.addAndConstraint(to: self)
+        titleLabel.addAndConstraint(to: self, topOffset: 10, leading: 15, trailing: 0, bottom: 0)
         titleLabel.textAlignment = .left
-        titleLabel.textColor = .appWhite
-        titleLabel.font = UIFont.robotoBold(20)
+        titleLabel.textColor = .interaction
+        titleLabel.font = UIFont.robotoMedium(12)
         
-        let lp = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
-        addGestureRecognizer(lp)
+        
+//        let lp = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
+//        addGestureRecognizer(lp)
     }
     
-    @objc func longPress(){
-        print("longpress")
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    
+    
+    
+    func makeTitleHeader(title: String){
+        titleLabel.removeFromSuperview()
+        addSubview(titleLabel)
         
-        let deleteAction = UIAlertAction(title: "DELETE", style: .default) { (action) in
-            print("DELETED")
-        }
-        actionSheet.addAction(deleteAction)
+//        contentView.backgroundColor = .background
+      
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
+        titleLabel.font = .robotoBold(25)
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
+        titleLabel.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        titleLabel.text = title
+        titleLabel.numberOfLines = -1
         
-        ViewController.controller.present(actionSheet, animated: true, completion: nil)
     }
     
+    
+//    @objc func longPress(){
+//        print("longpress")
+//        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//
+//        let deleteAction = UIAlertAction(title: "DELETE", style: .default) { (action) in
+//            print("DELETED")
+//        }
+//        actionSheet.addAction(deleteAction)
+//
+//        ViewController.controller.present(actionSheet, animated: true, completion: nil)
+//    }
+//
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -112,7 +135,7 @@ class TaskDetailTableViewCell: UITableViewCell {
         nextImg.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
         
         taskLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -2).isActive = true
-        taskLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2).isActive = true
+        taskLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         taskLabel.trailingAnchor.constraint(equalTo: nextImg.leadingAnchor, constant: -4).isActive = true
         taskLabel.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.45).isActive = true
         
@@ -122,7 +145,7 @@ class TaskDetailTableViewCell: UITableViewCell {
         dateLabel.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.45).isActive = true
         
         infoLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 2).isActive = true
-        infoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2).isActive = true
+        infoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         infoLabel.trailingAnchor.constraint(equalTo: dateLabel.leadingAnchor, constant: -2).isActive = true
         infoLabel.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.45).isActive = true
         

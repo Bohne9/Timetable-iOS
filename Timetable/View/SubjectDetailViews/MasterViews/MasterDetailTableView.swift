@@ -20,6 +20,7 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
         set{ self.dismiss.setImage(newValue?.withRenderingMode(.alwaysTemplate), for: .normal) }
     }
     
+    
     lazy var dismiss: UIButton = {
         let btn = UIButton()
         btn.setImage( #imageLiteral(resourceName: "Cross").withRenderingMode(.alwaysTemplate), for: .normal)
@@ -40,7 +41,7 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
     
     // TableView cell identifier
     var cellIdentifier: String = "undefined"
-    let tableView = UITableView()
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     var data: [DataType] = [] {
         didSet{
@@ -86,9 +87,9 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
         backgroundColor = .background
         
         
-        dismiss.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
-        
         setupUserInterface()
+        
+        dismiss.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         
         setupPanGesture()
     }
@@ -109,20 +110,20 @@ class MasterDetailTableView<DataType: LocalData>: UIView, UIGestureRecognizerDel
     
     private func setupUserInterface(){
         translatesAutoresizingMaskIntoConstraints = false
-        addSubview(titleLabel)
+//        addSubview(titleLabel)
         addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        //        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
-        //        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
-        titleLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
-        
-        tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2).isActive = true
+//
+//        //        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30).isActive = true
+//        //        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
+//        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
+//        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
+//        titleLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15).isActive = true
+//
+        tableView.topAnchor.constraint(equalTo: topAnchor, constant: 25).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         tableView.backgroundColor = .clear

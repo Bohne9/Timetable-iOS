@@ -184,8 +184,7 @@ extension UIView {
 extension UIFont {
     
     static func robotoBold(_ ofSize: CGFloat) -> UIFont{
-//        return UIFont(name: "Roboto-Bold", size: ofSize)!
-        return UIFont(name: "Helvetica Bold", size: ofSize)!
+        return UIFont(name: "Roboto-Bold", size: ofSize)!
     }
     
     static func robotoMedium(_ ofSize: CGFloat) -> UIFont{

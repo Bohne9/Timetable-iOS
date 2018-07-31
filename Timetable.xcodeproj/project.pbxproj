@@ -72,6 +72,7 @@
 		4F0BD04A210510BD00F356C5 /* MaterialDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */; };
 		4F10AEF5210E148300AD1025 /* MasterDetailAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10AEF4210E148300AD1025 /* MasterDetailAddView.swift */; };
 		4F10AEF7210E15D700AD1025 /* TaskDetailTableViewElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10AEF6210E15D700AD1025 /* TaskDetailTableViewElements.swift */; };
+		4F10AEF92110E88C00AD1025 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F10AEF82110E88C00AD1025 /* Main.storyboard */; };
 		4F10E5002104D6B300F06375 /* MaterialDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */; };
 		4F3A2FD320F76B5E00F17EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */; };
 		4F414ED620FE2CAA00E1E084 /* MaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */; };
@@ -184,6 +185,7 @@
 		4F0BD049210510BD00F356C5 /* MaterialDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4F10AEF4210E148300AD1025 /* MasterDetailAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterDetailAddView.swift; sourceTree = "<group>"; };
 		4F10AEF6210E15D700AD1025 /* TaskDetailTableViewElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewElements.swift; sourceTree = "<group>"; };
+		4F10AEF82110E88C00AD1025 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4F10E4FF2104D6B300F06375 /* MaterialDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDetailTableView.swift; sourceTree = "<group>"; };
 		4F3A2FD220F76B5E00F17EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialManager.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		4F008DE820F76779009A3E72 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
+				4F10AEF82110E88C00AD1025 /* Main.storyboard */,
 				4F3A2FD120F76B4900F17EB5 /* AppDelegate */,
 				4F008E1820F767D0009A3E72 /* Model */,
 				4F008E1920F767D6009A3E72 /* View */,
@@ -592,6 +595,7 @@
 				4F008E9220F769AC009A3E72 /* Roboto-Light.ttf in Resources */,
 				4F008E9120F769AC009A3E72 /* LICENSE.txt in Resources */,
 				4F008E8C20F769AC009A3E72 /* Roboto-Medium.ttf in Resources */,
+				4F10AEF92110E88C00AD1025 /* Main.storyboard in Resources */,
 				4F008E8B20F769AC009A3E72 /* Roboto-Thin.ttf in Resources */,
 				4F008DF420F7677A009A3E72 /* LaunchScreen.storyboard in Resources */,
 			);
