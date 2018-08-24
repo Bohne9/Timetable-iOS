@@ -92,7 +92,7 @@ class SubjectViewController: UIViewController, UIGestureRecognizerDelegate {
         
         chatId.textField.placeholder = "Click to add Chat usage"
         chatId.textField.textColor = .appWhite
-        chatId.descrLabel.textColor = .gray
+        chatId.descrLabel.textColor = .lightGray
         chatId.line.backgroundColor = .appWhite
         chatId.textField.textAlignment = .center
         
