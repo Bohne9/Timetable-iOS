@@ -21,34 +21,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+        window?.makeKeyAndVisible()
         FirebaseApp.configure()
         Database.database.configure {
-            
+
         }
-        
+
         MaterialManager.initMaterialManager()
         
-        let timestamp = Timestamp(date: Date())
-        
-        print("Timestamp String: \(timestamp.seconds) -- \(timestamp.dateValue())")
-        
-        let seconds = timestamp.seconds
-        
-        let stringTime = Timestamp(date: Date(timeIntervalSince1970: TimeInterval(seconds)))
-        
-        print("Timestamp from nanoseconds: \(stringTime.seconds) -- \(stringTime.dateValue())")
-        
-        
+        print("----------------------------------------------------------")
+        print("REINIT FIREBASE CONFIGURATION! OTHERWISE THERE IS NO DATA!")
+        print("----------------------------------------------------------")
         //testID -> ca-app-pub-3940256099942544/2934735716
         //GADMobileAds.configure(withApplicationID: "ca-app-pub-4090633946148380/1795910280")
 //        GADMobileAds.configure(withApplicationID: "ca-app-pub-4090633946148380~1795910280")
         
         UIApplication.shared.statusBarStyle = .lightContent
-        window?.rootViewController = ViewController()
+        window?.rootViewController = TabController()
         
-        window?.makeKeyAndVisible()
-        
+
         return true
     }
     

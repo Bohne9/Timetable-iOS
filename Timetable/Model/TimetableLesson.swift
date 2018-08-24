@@ -9,7 +9,10 @@
 import Foundation
 import Firebase
 
-class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
+class TimetableLesson: LocalData, CustomStringConvertible, Comparable, Hashable{
+    var hashValue: Int {
+        return id.hashValue
+    }
     
     static func > (lhs: TimetableLesson, rhs: Double) -> Bool {
         return lhs.endValue > rhs
@@ -48,7 +51,7 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
     }
     
     var description: String {
-        return "Id: \(id), \(lessonName), \(roomNumber), \(startTime), \(endTime), \(day)"
+        return "Id: \(id), \(lessonName), \(info), \(startTime), \(endTime), \(day)"
     }
     
     var id: String = ""
@@ -79,7 +82,7 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
                 "id" : id,
                 "user" : Database.userID,
                 "lessonName": lessonName,
-                "room": roomNumber,
+                "room": info,
                 "startTime" : startTime.database,
                 "endTime" : endTime.database,
                 "day": String(day.rawValue)
@@ -98,20 +101,24 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
     }
     
     var endValue: Double {
-        get{
+        get {
             return 24.0 * Double(day.rawValue - 1) + endTime.value
         }
     }
     
-    var roomNumber: String
+    var info: String
     var lessonName: String
     var startTime: Time, endTime: Time
     var day: Day
     
+    var taskTargets: [Task] = []
+    var materialTargets: [Material] = []
+    var subject: Subject!
+    
     init(_ id: String, _ ln: String, _ rn: String, _ start: Time, _ end: Time, _ d: Day) {
         self.id = id
         lessonName = ln
-        roomNumber = rn
+        info = rn
         startTime = start
         endTime = end
         day = d
@@ -122,7 +129,7 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
         self.id = data["id"] ?? ""
 //        subject = Database.database.getSubject(data["lessonName"]!)
         lessonName = data["lessonName"] ?? ""
-        roomNumber = data["room"] ?? ""
+        info = data["room"] ?? ""
         startTime = Time(data["startTime"] ?? "")
         endTime = Time(data["endTime"] ?? "")
         day = Day(rawValue: Int(data["day"] ?? "1")!)!
@@ -132,10 +139,10 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
         let data = TimetableLesson.map(d)
 //        print("Create Timetable lesson")
         self.id = data["id"] ?? ""
-        print(data)
+//        print(data)
 //        subject = Database.database.getSubject(data["lessonName"]!)
         lessonName = data["lessonName"] ?? ""
-        roomNumber = data["room"] ?? ""
+        info = data["room"] ?? ""
         startTime = Time(data["startTime"] ?? "")
         endTime = Time(data["endTime"] ?? "")
         day = Day(rawValue: Int(data["day"] ?? "1")!)!
@@ -143,10 +150,15 @@ class TimetableLesson: LocalData, CustomStringConvertible, Comparable{
     
     func updateValues(_ data: [String : String]) {
         lessonName = data["lessonName"] ?? ""
-        roomNumber = data["room"] ?? ""
+        info = data["room"] ?? ""
         startTime = Time(data["startTime"] ?? "")
         endTime = Time(data["endTime"] ?? "")
         day = Day(rawValue: Int(data["day"] ?? "1")!)!
+    }
+    
+    
+    func loadTargetTasks(){
+        taskTargets = Database.database.getTasksWithLesson(target: id)
     }
     
     func time() -> String {

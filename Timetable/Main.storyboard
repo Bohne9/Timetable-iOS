@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ay9-tb-18y">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="Y4w-nZ-0WW">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqD-Br-DeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="onl-B1-6sG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8gC-pz-uBj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Yel-wn-lCp"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="LJw-W7-noo"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-222" y="966"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="F1J-Ya-UrY">
+            <objects>
+                <tableViewController id="C4u-Bt-vWT" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5xJ-bR-coJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WU0-6u-Iz5">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WU0-6u-Iz5" id="k8k-Xf-dZ9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="C4u-Bt-vWT" id="qPV-Q0-y8e"/>
+                            <outlet property="delegate" destination="C4u-Bt-vWT" id="0t4-lo-WdG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="NWA-JZ-LlL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0LE-pv-OB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBar contentMode="scaleToFill" id="myY-4Y-ju0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="KgE-wZ-3Zm"/>
+                        <tabBarItem systemItem="more" id="jP8-BK-eHs"/>
+                    </items>
+                </tabBar>
+            </objects>
+            <point key="canvasLocation" x="-223" y="198"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YVY-tC-uUr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ese-D1-bYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController id="Ay9-tb-18y" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="up6-SK-645">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="onl-B1-6sG" kind="relationship" relationship="viewControllers" id="yr9-D7-0IP"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="-1394" y="739"/>
+        </scene>
+    </scenes>
+</document>

@@ -32,6 +32,10 @@ class Task : LocalData, Equatable {
     /// Timestamp when the message was written
     var timestamp: Timestamp!
     
+    var materials = [Material]()
+    
+    /// TimetableLessonID of a timetablelesson
+    var target: String?
     
     var map: [String : String] {
         get{
@@ -94,6 +98,10 @@ class Task : LocalData, Equatable {
         let timeInterval = TimeInterval(data["timestamp"] as! String)!
         let date = Date(timeIntervalSince1970: timeInterval)
         timestamp = Timestamp(date: date)
+        
+        if let target = (data["target"] as? String) {
+            self.target = target
+        }
     }
     
 }

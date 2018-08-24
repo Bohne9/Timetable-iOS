@@ -44,6 +44,11 @@ class TimetableDay : Equatable{
         self.day = Day.init(rawValue: day)!
     }
     
+    func sort(){
+        lessons.sort { (lhs, rhs) -> Bool in
+            return lhs.startValue < rhs.startValue
+        }
+    }
     
     func removeLesson(withId: String) -> Bool{
         

@@ -19,7 +19,8 @@ class Database {
     var timetableDays: [TimetableDay] = []
     
     var subjects = [Subject]()
-    var lessons: [String : TimetableLesson] = [:]
+    
+    var lessons = Set<TimetableLesson>()
     var tasks = [Task]()
     
     var delegate: DataUpdateDelegate!
@@ -90,12 +91,15 @@ class Database {
                 switch doc.type {
                     
                 case .added:
+                    let timetableDay = self.getTimetableDay(day: data.day)
+                    data.subject = self.getSubject(data.lessonName)
+                    timetableDay?.lessons.append(data)
                     self.updateUserInterface(reason: .LessonAdd, data.map)
                 case .modified:
                     self.updateUserInterface(reason: .LessonChange, data.map)
                     self.reloadSubjects()
                 case .removed:
-                    self.lessons.removeValue(forKey: data.id)
+                    self.lessons.remove(data)
                     self.reloadSubjects()
                     self.updateUserInterface(reason: .LessonRemove, data.map)
                     
@@ -115,7 +119,7 @@ class Database {
                         var subject = Subject(doc.document.get("lessonName") as! String)
                         subject.id = doc.document.documentID
                         
-                        print("Subject from Firebase: \(doc.document.data())")
+//                        print("Subject from Firebase: \(doc.document.data())")
                         
                         if self.subjects.contains(subject){
                             let index = self.subjects.index(of: subject)!
@@ -142,10 +146,10 @@ class Database {
                             self.updateUserInterface(reason: .SubjectRemove, subject.map)
                         }
                         
-                        print("Subjects:")
-                        self.subjects.forEach({ (s) in
-                            print("\t\(s.map)")
-                        })
+//                        print("Subjects:")
+//                        self.subjects.forEach({ (s) in
+//                            print("\t\(s.map)")
+//                        })
                     })
                 }
             }
@@ -176,7 +180,6 @@ class Database {
             return
         }
         
-        print("Add listerner")
         let identifier = subject.globalIdentifier!
         
         // Adding the snapshot listener
@@ -197,6 +200,7 @@ class Database {
                     if let subject = self.getSubject(globalIdentifier: task.subjectIdentifier) {
                         self.tasks.append(task)
                         subject.addTask(task: task)
+                        self.addTaskMaterialSnapshotListener(task: task)
                         self.updateUserInterface(reason: .TaskAdd, task.map)
                     }
                 case .modified:
@@ -219,32 +223,100 @@ class Database {
     
     
     
+    /// Adds a snapshot listerner to the tasks/{subjectIdentifier}/tasks/{taskID}//material/ collection.
+    /// In case the listerner is triggered: Extract the materialPath from the data that comes with it.
+    /// With this material path get the metadata from the Material.
+    /// MaterialPath = The path to the firestore material document
+    /// - Parameter task: Task for the Snapshot listener
+    private func addTaskMaterialSnapshotListener(task: Task) {
+        let subjectIdentifier = task.subjectIdentifier
+        let materialPath = path("tasks", subjectIdentifier, "tasks", task.taskID, "materials")
+//        print("Add Material listener")
+        connection.collection(materialPath).addSnapshotListener({ (snapshot, error) in
+            guard let documents = snapshot?.documentChanges else {
+                self.printError("listening for task material", error!)
+                return
+            }
+            
+            for doc in documents {
+                switch doc.type {
+                case .added:
+                    // get the material collection path. This path is stored in the task/materials/metaDataPath field
+                    let metaDataPath = doc.document.data()["materialPath"] as! String
+                    
+                    // get the material metadata from firestore
+                    self.getMaterialMetadata(materialPath: metaDataPath, { (material, error) in
+                        guard let material = material else {
+                            self.printError("getting some material metadata", error!)
+                            return
+                        }
+                        print("Got some material: \(material.url.path)")
+                        // Add the received material metadata to the task and the subject
+                        task.materials.append(material)
+                        self.getSubject(globalIdentifier: subjectIdentifier)?.material.append(material)
+                    })
+                    self.updateUserInterface(reason: .TaskAdd, task.map)
+                case .modified:
+                    break
+                case .removed:
+                    break
+                }
+            
+            }
+        })
+    }
     
+    
+    
+    /// Downloads the metadata for a Material object.
+    /// Process: The materialPath is stored in a task, news, or chat document. The materialPath is the path to the matieral document in firestore.
+    /// In the material document is the metadata for the material like storagePath, userID, timestamp and so on.
+    /// - Parameters:
+    ///   - materialPath: Path to the matieral document
+    ///   - completion: completion callback, if matieral is nil = error.
+    private func getMaterialMetadata(materialPath: String, _ completion: @escaping (Material?, Error?) -> Void) {
+        
+        connection.document(materialPath).getDocument { (docSnapshot, error) in
+            guard let data = docSnapshot?.data() else {
+                completion(nil, error!)
+                return
+            }
+            let material = Material(firebasePath: URL(fileURLWithPath: data["storagePath"] as! String), materialID: docSnapshot!.documentID, userID: data["userID"] as! String)
+            material.timestamp = data["timestamp"] as! Timestamp
+            completion(material, nil)
+        }
+        
+    }
     
     /// Reloads the subjects and removes the ones that have no more lessons
     private func reloadSubjects(){
-        
         let subSet = subjects.filter { (sub) -> Bool in
             self.lessons.filter({ (l) -> Bool in
-                return l.value.lessonName == sub.lessonName
+                return l.lessonName == sub.lessonName
             }).count == 0
         }
         
         subSet.forEach { (subject) in
             self.deleteSubject(subject.map)
         }
-        
     }
     
     
+    // Filters the tasks which have a given LessonTargetID (its just a TimetableLessonID)
+    func getTasksWithLesson(target: String) -> [Task] {
+        return tasks.filter({ (task) -> Bool in
+            return task.target == target
+        })
+    }
+    
     func getLessonsOf(subject: Subject) -> [TimetableLesson] {
-        return lessons.values.filter({ (lesson) -> Bool in
+        return lessons.filter({ (lesson) -> Bool in
             return lesson.lessonName == subject.lessonName
         })
     }
     
     func setLesson(_ lesson: TimetableLesson) {
-        lessons[lesson.id] = lesson
+        lessons.update(with: lesson)
     }
     
     func subjectExists(_ lessonName: String) -> Bool {
@@ -394,7 +466,7 @@ class Database {
         
         var update: [TimetableLesson] = []
         
-        for lesson in lessons.values {
+        for lesson in lessons {
             if lesson.lessonName == oldName  {
                 update.append(lesson)
             }
@@ -547,10 +619,20 @@ class Database {
     
     func getCurrentDayNumber() -> Int{
         let num = Calendar.current.dateComponents([.weekday], from: Date()).weekday! - 1
-        print("D \(num)")
         return num == 0 ? 7 : num
     }
     
+    
+    func getCurrentTimeValue() -> Double{
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        let time = Time(hour, minutes)
+        
+        return 24.0 * Double(getCurrentDayNumber() - 1) + time.value
+    }
     
     //    private func loadSubjects(_ completion: (()-> Void)? = nil) {
     //        self.subjects = []
