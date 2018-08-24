@@ -34,6 +34,8 @@ class Material: LocalData{
     var isLocal: Bool = true
     var temporaryLoacalURL: URL?
     
+    var target: String?
+    
     private init(url: URL, data: Data, materialID: String, userID: String) {
         self.url = url
         suffix = url.pathExtension

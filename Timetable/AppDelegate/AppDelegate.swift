@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        window = UIWindow(frame: UIScreen.main.bounds)
-        
-//        FirebaseApp.configure()
-//        Database.database.configure {
-//
-//        }
-//
-//        MaterialManager.initMaterialManager()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        FirebaseApp.configure()
+        Database.database.configure {
+
+        }
+
+        MaterialManager.initMaterialManager()
         
         print("----------------------------------------------------------")
         print("REINIT FIREBASE CONFIGURATION! OTHERWISE THERE IS NO DATA!")
@@ -37,10 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GADMobileAds.configure(withApplicationID: "ca-app-pub-4090633946148380~1795910280")
         
         UIApplication.shared.statusBarStyle = .lightContent
-//        window?.rootViewController = ViewController()
-//
-//        window?.makeKeyAndVisible()
-//
+        window?.rootViewController = TabController()
+        
+
         return true
     }
     

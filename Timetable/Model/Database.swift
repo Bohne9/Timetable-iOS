@@ -19,7 +19,8 @@ class Database {
     var timetableDays: [TimetableDay] = []
     
     var subjects = [Subject]()
-    var lessons: [String : TimetableLesson] = [:]
+    
+    var lessons = Set<TimetableLesson>()
     var tasks = [Task]()
     
     var delegate: DataUpdateDelegate!
@@ -90,12 +91,15 @@ class Database {
                 switch doc.type {
                     
                 case .added:
+                    let timetableDay = self.getTimetableDay(day: data.day)
+                    data.subject = self.getSubject(data.lessonName)
+                    timetableDay?.lessons.append(data)
                     self.updateUserInterface(reason: .LessonAdd, data.map)
                 case .modified:
                     self.updateUserInterface(reason: .LessonChange, data.map)
                     self.reloadSubjects()
                 case .removed:
-                    self.lessons.removeValue(forKey: data.id)
+                    self.lessons.remove(data)
                     self.reloadSubjects()
                     self.updateUserInterface(reason: .LessonRemove, data.map)
                     
@@ -115,7 +119,7 @@ class Database {
                         var subject = Subject(doc.document.get("lessonName") as! String)
                         subject.id = doc.document.documentID
                         
-                        print("Subject from Firebase: \(doc.document.data())")
+//                        print("Subject from Firebase: \(doc.document.data())")
                         
                         if self.subjects.contains(subject){
                             let index = self.subjects.index(of: subject)!
@@ -142,10 +146,10 @@ class Database {
                             self.updateUserInterface(reason: .SubjectRemove, subject.map)
                         }
                         
-                        print("Subjects:")
-                        self.subjects.forEach({ (s) in
-                            print("\t\(s.map)")
-                        })
+//                        print("Subjects:")
+//                        self.subjects.forEach({ (s) in
+//                            print("\t\(s.map)")
+//                        })
                     })
                 }
             }
@@ -286,28 +290,33 @@ class Database {
     
     /// Reloads the subjects and removes the ones that have no more lessons
     private func reloadSubjects(){
-        
         let subSet = subjects.filter { (sub) -> Bool in
             self.lessons.filter({ (l) -> Bool in
-                return l.value.lessonName == sub.lessonName
+                return l.lessonName == sub.lessonName
             }).count == 0
         }
         
         subSet.forEach { (subject) in
             self.deleteSubject(subject.map)
         }
-        
     }
     
     
+    // Filters the tasks which have a given LessonTargetID (its just a TimetableLessonID)
+    func getTasksWithLesson(target: String) -> [Task] {
+        return tasks.filter({ (task) -> Bool in
+            return task.target == target
+        })
+    }
+    
     func getLessonsOf(subject: Subject) -> [TimetableLesson] {
-        return lessons.values.filter({ (lesson) -> Bool in
+        return lessons.filter({ (lesson) -> Bool in
             return lesson.lessonName == subject.lessonName
         })
     }
     
     func setLesson(_ lesson: TimetableLesson) {
-        lessons[lesson.id] = lesson
+        lessons.update(with: lesson)
     }
     
     func subjectExists(_ lessonName: String) -> Bool {
@@ -457,7 +466,7 @@ class Database {
         
         var update: [TimetableLesson] = []
         
-        for lesson in lessons.values {
+        for lesson in lessons {
             if lesson.lessonName == oldName  {
                 update.append(lesson)
             }
@@ -610,10 +619,20 @@ class Database {
     
     func getCurrentDayNumber() -> Int{
         let num = Calendar.current.dateComponents([.weekday], from: Date()).weekday! - 1
-        print("D \(num)")
         return num == 0 ? 7 : num
     }
     
+    
+    func getCurrentTimeValue() -> Double{
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        let time = Time(hour, minutes)
+        
+        return 24.0 * Double(getCurrentDayNumber() - 1) + time.value
+    }
     
     //    private func loadSubjects(_ completion: (()-> Void)? = nil) {
     //        self.subjects = []
