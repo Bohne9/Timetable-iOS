@@ -12,6 +12,14 @@ var LessonAddSubjectIdentifierTableViewCellIdentifer = "LessonAddSubjectIdentifi
 var LessonAddSubjectIdentifierTableViewCellHeight: CGFloat = 150
 class LessonAddSubjectIdentifierTableViewCell: AddBodyTableViewCell {
 
+    var textFieldDelegate: UITextFieldDelegate? {
+        get{
+            return identifierTextField.delegate
+        }
+        set{
+            identifierTextField.delegate = newValue
+        }
+    }
     
     lazy var groupImage: UIImageView = {
         let imageView =  UIImageView(image: #imageLiteral(resourceName: "Group").withRenderingMode(.alwaysOriginal))

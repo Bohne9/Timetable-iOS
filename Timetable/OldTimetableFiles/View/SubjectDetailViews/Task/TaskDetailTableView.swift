@@ -21,7 +21,7 @@ class TaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UIT
             }
         }
     }
-
+    
     private var todayTasks = [Task]()
     private var weekTasks = [Task]()
     private var previousTasks = [Task]()
@@ -30,8 +30,8 @@ class TaskDetailTableView: MasterDetailTableView<Task>, UITableViewDelegate, UIT
     var dataStorage: [(timeInterval: TaskTimeIntervall, tasks: [Task])] = []
     
     
-    lazy var taskDetailView: TaskDetailView = {
-        let view = TaskDetailView()
+    lazy var taskDetailView: SubjectTaskDetailView = {
+        let view = SubjectTaskDetailView()
         view.addAndConstraint(to: self)
         layoutIfNeeded()
         view.fadeOutLayoutChanges()

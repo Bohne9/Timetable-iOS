@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SubjectTaskDetailView: MasterDetailView<Task> {
+class SubjectTaskDetailView: MasterDetailView<Task>, UITableViewDelegate, UITableViewDataSource {
     
     let taskTextView = UITextView()
     

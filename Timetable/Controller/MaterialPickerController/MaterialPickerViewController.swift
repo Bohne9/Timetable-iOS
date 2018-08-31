@@ -27,43 +27,44 @@ class MaterialPickerViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.isHidden = true
-        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: navigationBarHeight)
-        
-        navBar = UINavigationBar(frame: frame)
-        
-        view.addSubview(navBar)
-        
-        navBar.isTranslucent = false
-        navBar.backgroundColor = navigationBarTint
-        navBar.barTintColor = .clear
-        
-        additionalSafeAreaInsets = UIEdgeInsetsMake(navigationBarHeight - view.safeAreaInsets.top, 0, 0, 0)
-        
-        UINavigationBar.appearance().frame = frame
-        print(navBar.frame)
-        print(view.safeAreaInsets.top)
+        hidesBarsOnSwipe = false
+//        navigationBar.isHidden = true
+//        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: navigationBarHeight)
+//
+//        navBar = UINavigationBar(frame: .zero)
+//
+//        view.addSubview(navBar)
+//
+//        navBar.translatesAutoresizingMaskIntoConstraints = false
+//        navBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        navBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        navBar.heightAnchor.constraint(equalToConstant: navigationBarHeight).isActive = true
+//          
+//        navBar.isTranslucent = false
+//        navBar.backgroundColor = navigationBarTint
+//        navBar.barTintColor = navigationBarTint
+//
+//        additionalSafeAreaInsets = UIEdgeInsetsMake(navigationBarHeight - view.safeAreaInsets.top, 0, 0, 0)
+//
+//        UINavigationBar.appearance().frame = frame
+//        print(navBar.frame)
+//        print(view.safeAreaInsets.top)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
+//    private var didUpdateSafeArea = false
+//
+//    override func viewSafeAreaInsetsDidChange() {
+//        super.viewSafeAreaInsetsDidChange()
+//
+//        if didUpdateSafeArea {
+//            didUpdateSafeArea = false
+//            return
+//        }
+//        didUpdateSafeArea = true
+//        additionalSafeAreaInsets = UIEdgeInsetsMake(navigationBarHeight - view.safeAreaInsets.top, 0, 0, 0)
+//    }
     
-    private var didUpdateSafeArea = false
-    
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-        
-        if didUpdateSafeArea {
-            didUpdateSafeArea = false
-            return
-        }
-        didUpdateSafeArea = true
-        additionalSafeAreaInsets = UIEdgeInsetsMake(navigationBarHeight - view.safeAreaInsets.top, 0, 0, 0)
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -84,6 +85,11 @@ class MaterialPickerRootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "MaterialPicker"
+        navigationBar?.prefersLargeTitles = true
+        navigationBar?.frame.size.height = 300
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.barHideOnSwipeGestureRecognizer.isEnabled = false
         
         // Do any additional setup after loading the view.
         setupUserInterface()
@@ -94,7 +100,7 @@ class MaterialPickerRootViewController: UIViewController {
         tableView = UITableView(frame: .zero, style: .grouped)
         
         registerCells()
-        
+        view.addSubview(UIView())
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -124,7 +130,7 @@ extension MaterialPickerRootViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

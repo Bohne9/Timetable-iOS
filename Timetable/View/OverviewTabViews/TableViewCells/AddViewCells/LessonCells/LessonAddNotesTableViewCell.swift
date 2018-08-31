@@ -58,7 +58,7 @@ class LessonAddNotesTableViewCell: AddBodyTableViewCell, UITextViewDelegate {
     }
     
     
-    private func recalcualteTextViewHeight(){
+    func recalcualteTextViewHeight(){
         let maxSize = CGSize(width: notesTextView.frame.width, height: .greatestFiniteMagnitude)
         let size = notesTextView.sizeThatFits(maxSize)
         

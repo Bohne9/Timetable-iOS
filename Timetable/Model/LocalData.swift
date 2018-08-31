@@ -8,14 +8,5 @@
 
 import Foundation
 
-protocol LocalData {
-    
-    var map: [String : String]{
-        get set
-    }
-
-    
-}
-
 
 

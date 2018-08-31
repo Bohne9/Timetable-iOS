@@ -24,7 +24,6 @@ class AddBodyTableViewCell: UITableViewCell {
 //        layer.cornerRadius = 5
         backgroundColor = .white
         
-
         setupUserInterface()
         
     }

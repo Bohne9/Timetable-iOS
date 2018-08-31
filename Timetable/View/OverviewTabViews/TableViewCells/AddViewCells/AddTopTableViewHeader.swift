@@ -83,7 +83,7 @@ class AddTopTableViewHeader: UIView {
         titleTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         titleTextField.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
         
-        dismiss.topAnchor.constraint(equalTo: superview!.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
+        dismiss.topAnchor.constraint(equalTo: superview!.superview!.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         dismiss.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
         
         save.topAnchor.constraint(equalTo: dismiss.topAnchor).isActive = true

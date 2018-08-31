@@ -9,9 +9,9 @@
 
 import UIKit
 
-class LessonAddViewController: AddViewController {
+class LessonAddViewController: AddViewController, UINavigationBarDelegate {
     
-    private lazy var titleView = LessonAddTopTableViewHeader(superview: self.view)
+    private lazy var titleView = LessonAddTopTableViewHeader(superview: self.navigationController!.navigationBar)
     
     override func setupUserInterface() {
         topSectionPlaceholder = "Subject name"
@@ -22,16 +22,18 @@ class LessonAddViewController: AddViewController {
         titleView.backgroundColor = UIColor(hexString: "#6a89cc")
         titleView.translatesAutoresizingMaskIntoConstraints = false
         
-        titleView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        let navBar = self.navigationController!.navigationBar
         
+        titleView.topAnchor.constraint(equalTo: navigationController!.view.topAnchor).isActive = true
+        titleView.leadingAnchor.constraint(equalTo: navBar.leadingAnchor).isActive = true
+        titleView.trailingAnchor.constraint(equalTo: navBar.trailingAnchor).isActive = true
+        titleView.bottomAnchor.constraint(equalTo: navBar.bottomAnchor).isActive = true
         titleView.delegate = self
         
-        titleView.heightConstraint = titleView.heightAnchor.constraint(equalToConstant: navigationController!.navigationBar.frame.height + AddTopTableViewHeader.topOffset)
-        titleView.heightConstraint.isActive = true
-        
-        
+//        titleView.heightConstraint = titleView.heightAnchor.constraint(equalToConstant: navigationController!.navigationBar.frame.height + AddTopTableViewHeader.topOffset)
+//        titleView.heightConstraint.isActive = true
+//
+//
         super.setupUserInterface()
     }
     
@@ -40,21 +42,13 @@ class LessonAddViewController: AddViewController {
         tableView.reloadData()
     }
     
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-        titleView.heightConstraint.constant = navigationController!.navigationBar.frame.height + view.safeAreaInsets.top
-    }
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 5
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
@@ -69,6 +63,10 @@ class LessonAddViewController: AddViewController {
             return cell
         case 2:
             let cell = deqeueNotesCell(for: indexPath)
+            
+            return cell
+        case 3, 4:
+            let cell = deqeueSubjectIdentifierCell(for: indexPath)
             
             return cell
         default:
@@ -90,6 +88,7 @@ class LessonAddViewController: AddViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: LessonAddSubjectIdentifierTableViewCellIdentifer, for: indexPath) as! LessonAddSubjectIdentifierTableViewCell
         cell.selectionStyle = .none
         cell.tableView = tableView
+        cell.textFieldDelegate = self
         subjectIdentiferCell = cell
         return cell
     }
@@ -98,6 +97,7 @@ class LessonAddViewController: AddViewController {
     private func deqeueNotesCell(for indexPath: IndexPath) -> LessonAddNotesTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LessonAddNotesTableViewCellIdentifier, for: indexPath) as! LessonAddNotesTableViewCell
         cell.selectionStyle = .none
+        cell.notesTextView.delegate = self
         cell.tableView = tableView
         notesCell = cell
         return cell
@@ -126,6 +126,8 @@ class LessonAddViewController: AddViewController {
             return LessonAddSubjectIdentifierTableViewCellHeight
         case 2:
             return LessonAddNotesTableViewCellHeight
+        case 3,4:
+            return LessonAddSubjectIdentifierTableViewCellHeight
         default:
             return 100
         }
@@ -153,6 +155,27 @@ class LessonAddViewController: AddViewController {
         let lesson = TimetableLesson("", subjectName, info, startTime, endTime, day)
         
         return lesson
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            textView.textColor = .gray
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Notiz hinzufügen"
+            textView.textColor = .lightGray
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView.text.last == "\n" {
+            notesCell?.recalcualteTextViewHeight()
+            keyboardWillShow(keyboardSize: keyboardSize)
+        }
     }
     
 //    init(_ id: String, _ ln: String, _ rn: String, _ start: Time, _ end: Time, _ d: Day) {

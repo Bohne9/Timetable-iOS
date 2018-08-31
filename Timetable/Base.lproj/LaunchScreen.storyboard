@@ -44,7 +44,7 @@
                             <constraint firstItem="lav-Vn-ejr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FNi-32-EfZ"/>
                             <constraint firstItem="lav-Vn-ejr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eBA-y0-UlI"/>
                             <constraint firstItem="lav-Vn-ejr" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="kxX-ED-ehr"/>
-                            <constraint firstItem="lav-Vn-ejr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="mOE-Tc-Bfj"/>
+                            <constraint firstItem="lav-Vn-ejr" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="mOE-Tc-Bfj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -98,6 +98,7 @@
 		4F7B635D211CA4D900EA73B6 /* OverviewDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B635C211CA4D900EA73B6 /* OverviewDetailController.swift */; };
 		4F84D3C4211EF79500B0C52C /* OverviewDetailTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F84D3C3211EF79500B0C52C /* OverviewDetailTopCell.swift */; };
 		4F84D3C7211EF96200B0C52C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F84D3C6211EF96200B0C52C /* TextField.swift */; };
+		4F8875422133437E005A19E0 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8875412133437E005A19E0 /* JSON.swift */; };
 		4F961536212BFA050094687E /* MaterialAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F961535212BFA050094687E /* MaterialAddViewController.swift */; };
 		4F961539212BFB0F0094687E /* TaskAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F961538212BFB0F0094687E /* TaskAddViewController.swift */; };
 		4F96153B212BFC780094687E /* MaterialAddTopTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F96153A212BFC780094687E /* MaterialAddTopTableViewHeader.swift */; };
@@ -239,6 +240,7 @@
 		4F7B635C211CA4D900EA73B6 /* OverviewDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDetailController.swift; sourceTree = "<group>"; };
 		4F84D3C3211EF79500B0C52C /* OverviewDetailTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDetailTopCell.swift; sourceTree = "<group>"; };
 		4F84D3C6211EF96200B0C52C /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		4F8875412133437E005A19E0 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		4F961535212BFA050094687E /* MaterialAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialAddViewController.swift; sourceTree = "<group>"; };
 		4F961538212BFB0F0094687E /* TaskAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddViewController.swift; sourceTree = "<group>"; };
 		4F96153A212BFC780094687E /* MaterialAddTopTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialAddTopTableViewHeader.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				4F414ED520FE2CAA00E1E084 /* MaterialManager.swift */,
 				4F414ED720FE2F5200E1E084 /* Material.swift */,
 				4F51BE1B2104625F003624B7 /* Settings.swift */,
+				4F8875412133437E005A19E0 /* JSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				4F008E4320F7685A009A3E72 /* MasterDetailTableView.swift in Sources */,
 				4F008E5720F7687A009A3E72 /* AlertViewConroller.swift in Sources */,
 				4F008E2720F7682C009A3E72 /* Message.swift in Sources */,
+				4F8875422133437E005A19E0 /* JSON.swift in Sources */,
 				4F008E3A20F7685A009A3E72 /* TaskDetailTableView.swift in Sources */,
 				4F0ADE4B212333A600472522 /* AddTopTableViewHeader.swift in Sources */,
 				4F657CF821242EA500F39453 /* LessonAddTopTableViewHeader.swift in Sources */,
